@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
