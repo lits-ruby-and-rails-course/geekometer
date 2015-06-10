@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Geekometer</title>
+  <%= stylesheet_link_tag    'testpage', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'testpage', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <p>Ім’я користувача, що проходить тест</p>  <!-- Необхідно вписати код який висвітлював би ім’я користувача його ай-ди -->
+    <form action="&&&&&" method="post" id="testing">
+        <div id="test_selection">
+              <div><p> question 1 <!-- вводимо ай-ди вибірково з бази данних питаннь відповідного рівня складності--> </p> <!-- рівняюсь на те що база данних складаеться з різних рівнів складності запитань, і одне запитання має декілька варіантів відповіді, наприкла не менше 10, лише одне зних вірне, а для вибору в тесті даеться лише 4 варіанти, (метод) варінти відповіді перемішуються між собою при кожному створені нового тесту для відповідного запитання-->
+                  <label><input type="radio" name="quest" value="answer1" >answer1<!--ай-ди варіанта відповіді--></label><br><!--chacked ?????-->
+                  <label><input type="radio" name="quest" value="answer1" >answer1<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer1" >answer1<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer1" >answer1<!--ай-ди варіанта відповіді--></label><br>
+              </div><br><br>
+              <div><p> question 2 </p> 
+                  <label><input type="radio" name="quest" value="answer2" >answer2<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer2" >answer2<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer2" >answer2<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer2" >answer2<!--ай-ди варіанта відповіді--></label><br>
+              </div><br><br>
+              <div><p> question 3 </p> 
+                  <label><input type="radio" name="quest" value="answer3" >answer3<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer3" >answer3<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer3" >answer3<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer3" >answer3<!--ай-ди варіанта відповіді--></label><br>
+              </div><br><br>
+              <div><p> question 4 </p> 
+                  <label><input type="radio" name="quest" value="answer4" >answer4<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer4" >answer4<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer4" >answer4<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer4" >answer4<!--ай-ди варіанта відповіді--></label><br>
+              </div><br><br>
+              <div><p> question 5 </p> 
+                  <label><input type="radio" name="quest" value="answer5" >answer5<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer5" >answer5<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer5" >answer5<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer5" >answer5<!--ай-ди варіанта відповіді--></label><br>
+              </div><br><br>
+              <div><p> question 6 </p> 
+                  <label><input type="radio" name="quest" value="answer6" >answer6<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer6" >answer6<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer6" >answer6<!--ай-ди варіанта відповіді--></label><br>
+                  <label><input type="radio" name="quest" value="answer6" >answer6<!--ай-ди варіанта відповіді--></label><br>
+              </div><br><br>
+        </div>
+    </div><br><br>
+    </form>
+<!--<%= yield %>?????-->
+
+</body>
+</html>
