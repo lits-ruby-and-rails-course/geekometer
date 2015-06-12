@@ -1,19 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
+  root 'pages#welcome'
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  devise_scope :user do
+    get "/logout" => "devise/sessions#destroy"
+  end
 
   ActiveAdmin.routes(self)
+
+  get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#login'
 
-  # resource :user do
-  #   collection do
-  #     get 'login'
-  #   end
-  # end
+  resource :user do
+    collection do
+      get 'login'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
