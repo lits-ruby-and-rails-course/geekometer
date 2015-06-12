@@ -1,0 +1,11 @@
+<ul>
+  <% @questions.each do |question| %>
+    <li><strong><%= question.condition %></strong>
+      <ul>
+        <% question.answers.each do |answer| %>
+          <li><%= answer.solution %> (<%= answer.answer_valid %>)</li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
