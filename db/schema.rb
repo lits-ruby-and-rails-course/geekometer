@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612115847) do
+ActiveRecord::Schema.define(version: 20150612174632) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -27,6 +27,49 @@ ActiveRecord::Schema.define(version: 20150612115847) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "question_id"
+    t.text     "solution"
+    t.boolean  "answer_valid"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "condition"
+    t.integer  "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_suit_answers", force: :cascade do |t|
+    t.integer  "test_suit_id"
+    t.integer  "answer_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "test_suit_answers", ["answer_id"], name: "index_test_suit_answers_on_answer_id"
+  add_index "test_suit_answers", ["test_suit_id"], name: "index_test_suit_answers_on_test_suit_id"
+
+  create_table "test_suits", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "test_suits", ["user_id"], name: "index_test_suits_on_user_id"
+
+  create_table "test_suits_questions", force: :cascade do |t|
+    t.integer "test_suit_id"
+    t.integer "question_id"
+  end
+
+  add_index "test_suits_questions", ["question_id"], name: "index_test_suits_questions_on_question_id"
+  add_index "test_suits_questions", ["test_suit_id"], name: "index_test_suits_questions_on_test_suit_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
