@@ -1,13 +1,37 @@
+@mixin set-height($persent) {
+  min-height: $persent;
+  height: $persent;
+}
+
+html {
+    @include set-height(100%);
+}
+
+body {
+    @include set-height(100%);
+}
+
 .center-text {
 	text-align: center;
 }
 
 .welcome-header-one {
-	margin-top: 100px;
+	margin-top: 0;
+  padding-top: 10px;
 	font-weight: bold;
+  color: white;
 }
 
 .welcome-main-area {
-	margin-top: 100px;
 	font-size: 20px;
+  color: white;
+  a {
+    color: red;
+  }
+}
+
+.background {
+  background-image: url(geek.jpg);
+  width: 100%;
+  height: 100%;
 }
