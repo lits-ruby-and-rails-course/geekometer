@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
 
   resources :questions
-  resources :topics
+
+  get 'topics' => 'topics#new', path: 'new_topic'
+  post 'topics' => 'topics#create', path: 'new_topic'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

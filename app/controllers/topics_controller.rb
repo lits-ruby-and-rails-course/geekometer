@@ -6,12 +6,13 @@ class TopicsController < ApplicationController
   end
 
   def create
-   @topic = Topic.new(topic_params)
+    @topic = Topic.new(topic_params)
 
    if @topic.save
-     redirect_to root_path, notice: 'Topic was successfully created.'
+    redirect_to root_path, notice: 'Topic was successfully created.'
    else
-     render :new
+    flash.now[:danger] = 'Name and description fields should be present'
+    render :new
    end
   end
 

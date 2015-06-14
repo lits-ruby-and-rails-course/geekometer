@@ -8,7 +8,7 @@
   	  			<p><%= link_to("Admin Panel", admin_root_path) %></p>
   	  		</li>
   	  		<li role="presentation">
-  	  			<p><%= link_to("Create New Topic", new_topic_path) %></p>
+  	  			<p><%= link_to("Create New Topic", controller: "topics", action: "new") %></p>
   	  		</li>
   	  		<hr>
   	  		<p><%= link_to("Logout", destroy_user_session_path) %></p>
