@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612174632) do
+ActiveRecord::Schema.define(version: 20150614164121) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -43,7 +43,10 @@ ActiveRecord::Schema.define(version: 20150612174632) do
     t.integer  "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "topic_id"
   end
+
+  add_index "questions", ["topic_id"], name: "index_questions_on_topic_id"
 
   create_table "test_suit_answers", force: :cascade do |t|
     t.integer  "test_suit_id"
@@ -70,6 +73,13 @@ ActiveRecord::Schema.define(version: 20150612174632) do
 
   add_index "test_suits_questions", ["question_id"], name: "index_test_suits_questions_on_question_id"
   add_index "test_suits_questions", ["test_suit_id"], name: "index_test_suits_questions_on_test_suit_id"
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
