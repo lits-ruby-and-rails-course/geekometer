@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h2 class="center-text">Create Topic!</h2>
+
+    <%= form_for(@topic) do |f| %>
+      <div class="field form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :description %><br />
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Create!", class: "btn btn-primary" %>
+        <%= link_to("Back", root_path , class: "btn btn-info") %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

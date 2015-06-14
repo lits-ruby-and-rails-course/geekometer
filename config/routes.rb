@@ -10,18 +10,13 @@ Rails.application.routes.draw do
 
   get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
 
+  resources :questions
+  resources :topics
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
-  resource :user do
-    collection do
-      get 'login'
-    end
-  end
-
-  resources :question
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
