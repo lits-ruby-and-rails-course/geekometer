@@ -1,0 +1,14 @@
+<div class="container">
+	<h1 class="jumbotron center-text welcome-header-one">Please Choose a Topic from Below!</h1>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<ul class="nav nav-pills nav-stacked">
+				<% @topics.each do |topic| %>
+			  <li role="presentation" class="active"><%= link_to(topic.name.capitalize, topic) %></li>
+			  <% end %>
+			</ul>
+			<hr>
+			<%= link_to("Back", root_path , class: "btn btn-info") %>
+		</div>
+	</div>
+</div>

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
 
   resources :questions, only: [:new, :create]
-  resources :topics, only: [:new, :create]
+  resources :topics, only: [:index, :show, :new, :create]
 
   # get 'topics' => 'topics#new', path: 'new_topic'
   # post 'topics' => 'topics#create', path: 'new_topic'
