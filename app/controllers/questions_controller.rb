@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @questions = Question.all
@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    3.times { @question.answers.build }
+    2.times { @question.answers.build }
   end
 
   def create
@@ -16,14 +16,14 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to root_path, notice: 'Question was successfully created.'
     else
-      flash.now[:danger] = 'Condition field should be present'
-      render 'new'
+      flash.now[:danger] = 'Required fields should be present'
+      render :new
     end
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:condition, :difficulty, answers_attributes: [:solution, :answer_valid])
+    params.require(:question).permit(:condition, :difficulty, :topic_id, answers_attributes: [:solution, :answer_valid])
   end
 end
