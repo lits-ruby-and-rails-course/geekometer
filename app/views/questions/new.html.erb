@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h2 class="center-text">Create Question!</h2>
+
+    <%= form_for @question do |f| %>
+      <div class="field form-group">
+        <%= f.label :difficulty %><br />
+        <%= f.number_field :difficulty, class: "form-control", within: 1..8 %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :condition %><br />
+        <%= f.text_area :condition, autofocus: true, class: "form-control" %>
+      </div>
+
+    <%= f.fields_for :answers do |builder| %>
+      <div class="field form-group">
+        <%= builder.label :solution %><br />
+        <%= builder.text_area :solution, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= builder.label :answer_valid, "Answer Valid?" %>
+        <%= builder.check_box :answer_valid, class: "checkbox_inline" %>
+      </div>
+    <% end %>
+
+      <div class="actions">
+        <%= f.submit "Create!", class: "btn btn-primary" %>
+        <%= link_to("Back", root_path , class: "btn btn-info") %>
+      </div>
+    <% end %>
+
+    </div>
+  </div>
+</div>
