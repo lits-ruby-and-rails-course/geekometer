@@ -21,9 +21,14 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question.destroy
+  end
+
   private
 
   def question_params
-    params.require(:question).permit(:condition, :difficulty, :topic_id, answers_attributes: [:solution, :answer_valid])
+    params.require(:question).permit(:condition, :difficulty, :topic_id,
+                                     answers_attributes: [:id, :solution, :answer_valid, :_destroy])
   end
 end
