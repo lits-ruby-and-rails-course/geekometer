@@ -7,7 +7,9 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    2.times { @question.answers.build }
+    1.times do
+     4.times { @question.answers.build }
+    end
   end
 
   def create

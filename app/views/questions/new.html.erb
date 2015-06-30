@@ -24,10 +24,11 @@
     <%= f.fields_for :answers do |builder| %>
       <%= render partial: 'answer_fields', locals: {f: builder} %>
     <% end %>
+        <%= link_to_add_fields "Add Answer", f, :answers  %>
 
-      <div class="actions">
+        <div class="actions">
         <%= f.submit "Create!", class: "btn btn-primary" %>
-        <%= link_to("Back", root_path , class: "btn btn-info") %>
+        <%= link_to("Back", :back, class: "btn btn-info") %>
       </div>
     <% end %>
 
