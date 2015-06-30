@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Pass your first test!</h1>
+      <ul class="list-unstyled">
+        <% 2.times do |count| %>
+            <h4>Question <%= count.next %>:</h4>
+            <li><h3><%= random_question.condition %></h3></li>
+            <% for answer in random_question.answers %>
+              <% if answer.answer_valid %>
+                <%= radio_button_tag(answer.question_id, 'valid') %>
+              <% else %>
+                <%= radio_button_tag(answer.question_id, 'answer') %>
+              <% end %>
+              <%= label_tag(:solution, answer.solution) %> <br/>
+            <% end %>
+            <br/>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag 'geek-zone.gif', class: "is-geek img-responsive center-block" %>
+    </div>
+  </div>
+
+  <hr/>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">Technologies:</h2>
+    <div class="col-md-4"><%= link_to (image_tag 'sql.png', class: "img-responsive img-rounded"), '#' %></div>
+    <div class="col-md-4"><%= link_to (image_tag 'css.png', class: "img-responsive img-rounded" ), '#' %></div>
+    <div class="col-md-4"><%= link_to (image_tag 'rails.jpg', class: "img-responsive img-rounded"), '#' %></div>
+  </div>
+</div>
