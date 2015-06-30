@@ -41,3 +41,8 @@ Answer.create(question_id: '2', solution: 'I don\'t know', answer_valid: false)
 Answer.create(question_id: '3', solution: 'OK')
 Answer.create(question_id: '4', solution: 'YES')
 Answer.create(question_id: '5', solution: 'Alright!')
+
+# Creating technologies:
+Technology.create(name: 'Ruby', logo: 'rails.jpg')
+Technology.create(name: 'SQL', logo: 'sql.png')
+Technology.create(name: 'CSS', logo: 'css.png')

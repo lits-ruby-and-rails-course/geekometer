@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1885473473">
+  <component name="DataSourceManagerImpl" format="xml" hash="4038311011">
     <data-source source="LOCAL" name="Rails geekometer: development" uuid="a81ce3ad-d632-4f2c-a1ce-ca5a1e3769f9">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
