@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :invites
   root 'pages#welcome'
 
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:new, :create]
   resources :topics, only: [:index, :show, :new, :create]
+
 
   # get 'topics' => 'topics#new', path: 'new_topic'
   # post 'topics' => 'topics#create', path: 'new_topic'

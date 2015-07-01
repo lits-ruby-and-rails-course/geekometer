@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<div id="one">
+<h1>Invite your friend</h1>
+
+<table>
+
+  <tbody>
+    <% @invites.each do |invite| %>
+      <tr>
+        <td><%= invite.email %></td>
+        <td><%= invite.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<h2>
+<%= link_to 'send your invitation', new_invite_path %></h2>
+</div>
+
+<div id="two">
+  <h3>You have 3 invites available to send</h3>
+</div>
