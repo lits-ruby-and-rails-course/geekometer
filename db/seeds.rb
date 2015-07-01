@@ -43,6 +43,6 @@ Answer.create(question_id: '4', solution: 'YES')
 Answer.create(question_id: '5', solution: 'Alright!')
 
 # Creating technologies:
-Technology.create(name: 'Ruby', logo: 'rails.jpg')
+Technology.create(name: 'Ruby', logo: 'rails.png')
 Technology.create(name: 'SQL', logo: 'sql.png')
 Technology.create(name: 'CSS', logo: 'css.png')
