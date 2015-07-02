@@ -89,6 +89,9 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_invitable (1.4.2)
+      actionmailer (>= 3.2.6, < 5)
+      devise (>= 3.2.0)
     draper (2.1.0)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -211,6 +214,7 @@ DEPENDENCIES
   byebug
   cancan
   devise
+  devise_invitable (~> 1.4.2)
   draper
   jquery-rails
   pundit
@@ -220,3 +224,6 @@ DEPENDENCIES
   sqlite3
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.2
