@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 20150701115552) do
 
   add_index "questions", ["topic_id"], name: "index_questions_on_topic_id"
 
+  create_table "technologies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "test_suit_answers", force: :cascade do |t|
     t.integer  "test_suit_id"
     t.integer  "answer_id"

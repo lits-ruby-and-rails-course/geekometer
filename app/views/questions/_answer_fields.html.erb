@@ -1,0 +1,7 @@
+<div class="field form-group">
+  <%= f.label :solution %>
+  <%= f.label :answer_valid, "Answer Valid?" %>
+  <%= f.check_box :answer_valid %>
+  <%= link_to "remove", "#", class: "remove_fields" %><br/>
+  <%= f.text_field :solution, class: "form-control" %>
+</div>
