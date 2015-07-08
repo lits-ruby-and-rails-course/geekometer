@@ -7,6 +7,7 @@ gem 'rails', '4.2.1'
 gem 'sqlite3'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+gem 'devise_invitable', '~> 1.4.2'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'

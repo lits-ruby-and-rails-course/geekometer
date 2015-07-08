@@ -1,3 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $("input[type='radio']").on 'click', ->
+    if $("input[value='valid']").is(':checked')
+      $( ".is-geek" ).fadeIn( "slow" )
+    else if !$("input[value='valid']").is(':checked')
+      $( ".is-geek" ).fadeOut( "slow" )

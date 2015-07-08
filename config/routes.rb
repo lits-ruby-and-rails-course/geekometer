@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   root 'pages#welcome'
+
 
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   devise_scope :user do
@@ -10,9 +12,10 @@ Rails.application.routes.draw do
 
   get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
 
-  resources :questions, only: [:new, :create]
+  resources :questions, only: [:index, :new, :create]
   resources :topics, only: [:index, :show, :new, :create]
   resources :users, only: [:edit, :new, :show, :testpage]
+
 
 
   # get 'topics' => 'topics#new', path: 'new_topic'

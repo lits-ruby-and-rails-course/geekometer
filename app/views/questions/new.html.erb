@@ -21,19 +21,14 @@
         <%= f.text_area :condition, rows: "10", class: "form-control" %>
       </div>
       <hr>
-    <% just_a_counter = 0 %>
     <%= f.fields_for :answers do |builder| %>
-      <div class="field form-group">
-        <%= builder.label :solution %><%= " ##{just_a_counter += 1} | " %>
-        <%= builder.label :answer_valid, "Answer Valid?" %>
-        <%= builder.check_box :answer_valid, class: "checkbox_inline" %><br />
-        <%= builder.text_field :solution, class: "form-control" %>
-      </div>
+      <%= render partial: 'answer_fields', locals: {f: builder} %>
     <% end %>
+        <%= link_to_add_fields "Add Answer", f, :answers  %>
 
-      <div class="actions">
+        <div class="actions">
         <%= f.submit "Create!", class: "btn btn-primary" %>
-        <%= link_to("Back", root_path , class: "btn btn-info") %>
+        <%= link_to("Back", :back, class: "btn btn-info") %>
       </div>
     <% end %>
 

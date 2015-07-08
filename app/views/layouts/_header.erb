@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <% if user_signed_in? %>
+        <%= link_to 'Invite Friend', new_user_invitation_path, class: "navbar-brand pull-right" %>
+        <%= link_to "Logout", destroy_user_session_path, class: "navbar-brand pull-right" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
