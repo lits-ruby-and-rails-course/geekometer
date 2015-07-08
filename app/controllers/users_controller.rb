@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-#  before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_user, only: [:id, :show, :edit, :update, :destroy]
 before_action :authenticate_user!
 
   # GET /users
@@ -17,8 +17,8 @@ before_action :authenticate_user!
 #  end
 #
 #  # GET /users/1/edit
-#  def edit
-#  end
+def edit
+end
 #
 #  # POST /users
 #  def create
@@ -48,9 +48,9 @@ before_action :authenticate_user!
 #
 #  private
 #    # Use callbacks to share common setup or constraints between actions.
-#    def set_user
-#      @user = User.find(params[:id])
-#    end
+    def set_user
+     @user = User.find(params[:id])
+   end
 #
 #    # Only allow a trusted parameter "white list" through.
 #    def user_params

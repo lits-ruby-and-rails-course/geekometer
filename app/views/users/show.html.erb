@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<%=current_user.id %>
+<%=current_user.email %>
+<%=current_user.avatar %>
+<%= link_to 'Edit', edit_user_path(current_user) %> |
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', root_path %>

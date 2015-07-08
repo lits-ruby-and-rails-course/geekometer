@@ -10,6 +10,9 @@ gem 'devise'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
+gem "rmagick"
+gem "carrierwave"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.4'
@@ -32,4 +35,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

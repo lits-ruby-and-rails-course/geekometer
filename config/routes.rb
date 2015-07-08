@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:new, :create]
   resources :topics, only: [:index, :show, :new, :create]
+  resources :users, only: [:edit, :new, :show, :testpage]
+
 
   # get 'topics' => 'topics#new', path: 'new_topic'
   # post 'topics' => 'topics#create', path: 'new_topic'
