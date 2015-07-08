@@ -16,8 +16,6 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -32,7 +30,6 @@ Rails.application.configure do
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
-  config.assets.digest = true
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
@@ -49,11 +46,11 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   ActionMailer::Base.smtp_settings = {
-      :address => "smtp.gmail.com",
+      :address => "smtp.mandrillapp.com",
       :port => 587,
       :authentication => :plain,
-      :domain => 'gmail.com',
-      :user_name            => 'geekometer.development',
-      :password             => 'geek1234qwerty',
+      :domain => 'geekometer.com',
+      :user_name => 'geekometer.development@gmail.com',
+      :password  => 'IJ4-RJzgZJdK0I48iOQrnA',
   }
 end

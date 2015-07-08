@@ -7,9 +7,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    1.times do
-     4.times { @question.answers.build }
-    end
+    4.times { @question.answers.build }
   end
 
   def create
@@ -30,7 +28,8 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:condition, :difficulty, :topic_id,
-                                     answers_attributes: [:id, :solution, :answer_valid, :_destroy])
+    params.require(:question)
+    .permit(:condition, :difficulty, :topic_id, \
+            answers_attributes: [:id,:solution, :answer_valid, :_destroy])
   end
 end
