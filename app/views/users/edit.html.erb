@@ -1,8 +1,7 @@
-<h1>Editing User</h1>
-
+<h1>Editind User Profile</h1>
 <%= render 'form' %>
-
 
 <%= link_to 'Add avatar'%>
 
-<%= link_to 'Back', user_path %>
+
+<%= link_to 'Show Profile', user_path(current_user)%>

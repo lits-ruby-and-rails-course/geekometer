@@ -6,13 +6,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'e2195593a7fed77d90ef91d470ff2775d458b4059cc4520c630c16e747ae0dcab1cd3f4736394757fe2e0031e9cd84c40f833a12654584a99619199d29a79c64'
+  # config.secret_key = '8199e0fde08e6e0b855b4bfb1290445329d5fc3616f43812883a44a3f68463765aafc5069b44ac2eace0b1d4141c4fdfeae3125ed70305e3e18776e0598c53c5'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'geekometer.development@gmail.com'
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -99,51 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'af8ac665acc1899e2c2d6fe6f496ca10272ab2b5fc70b44d1e870d75e0534b11de2f89ac1d3d549cd74818d2dd697ad4629523caa4b8a8014a1f6ec1c00d0558'
-
-  # ==> Configuration for :invitable
-  # The period the generated invitation token is valid, after
-  # this period, the invited resource won't be able to accept the invitation.
-  # When invite_for is 0 (the default), the invitation won't expire.
-  # config.invite_for = 2.weeks
-
-  # Number of invitations users can send.
-  # - If invitation_limit is nil, there is no limit for invitations, users can
-  # send unlimited invitations, invitation_limit column is not used.
-  # - If invitation_limit is 0, users can't send invitations by default.
-  # - If invitation_limit n > 0, users can send n invitations.
-  # You can change invitation_limit column for some users so they can send more
-  # or less invitations, even with global invitation_limit = 0
-  # Default: nil
-  # config.invitation_limit = 5
-
-  # The key to be used to check existing users when sending an invitation
-  # and the regexp used to test it when validate_on_invite is not set.
-  # config.invite_key = {:email => /\A[^@]+@[^@]+\z/}
-  # config.invite_key = {:email => /\A[^@]+@[^@]+\z/, :username => nil}
-
-  # Flag that force a record to be valid before being actually invited
-  # Default: false
-  # config.validate_on_invite = true
-
-  # Resend invitation if user with invited status is invited again
-  # Default: true
-  # config.resend_invitation = false
-
-  # The class name of the inviting model. If this is nil,
-  # the #invited_by association is declared to be polymorphic.
-  # Default: nil
-  # config.invited_by_class_name = 'User'
-
-  # The column name used for counter_cache column. If this is nil,
-  # the #invited_by association is declared without counter_cache.
-  # Default: nil
-  # config.invited_by_counter_cache = :invitations_count
-
-  # Auto-login after the user accepts the invite. If this is false,
-  # the user will need to manually log in after accepting the invite.
-  # Default: false
-  # config.allow_insecure_sign_in_after_accept = true
+  # config.pepper = '0af510890bfa0541ea77f052f83542a83a2eac77be90b8286b0ba7ff2ac4a5fc611bd491d891bcc6f421a8376b4f4ffa488214854771e743daa08652a1ed1feb'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without

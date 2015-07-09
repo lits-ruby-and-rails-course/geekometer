@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-  <% @users.each do |user| %>
+  <% @User.each do |user| %>
       <tr>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
@@ -22,5 +22,5 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path(current_user) %>
 <%= link_to "Invite a friend", new_user_invitation_path, :class => 'btn btn-primary' %>

@@ -4,4 +4,4 @@
 <%=current_user.avatar %>
 <%= link_to 'Edit', edit_user_path(current_user) %> |
 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back to Welcome Page', root_path(current_user) %>

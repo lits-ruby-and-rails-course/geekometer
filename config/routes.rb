@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
 
-  root 'pages#welcome'
-
+  devise_scope :user do
+    authenticated :user do
+      root 'pages#welcome'
+    end
+    unauthenticated :user do
+      root :to => 'devise/sessions#new',  as:  :unauthenticated_root
+    end
+  end
 
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   devise_scope :user do
     get "/logout" => "devise/sessions#destroy"
   end
 
+
+
   ActiveAdmin.routes(self)
+
+
 
   get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
 

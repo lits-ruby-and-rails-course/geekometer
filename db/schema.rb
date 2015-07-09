@@ -38,13 +38,6 @@ ActiveRecord::Schema.define(version: 20150701115552) do
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
-  create_table "invites", force: :cascade do |t|
-    t.string   "email"
-    t.text     "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "questions", force: :cascade do |t|
     t.text     "condition"
     t.integer  "difficulty"

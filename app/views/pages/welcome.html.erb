@@ -17,8 +17,10 @@
           <li role="presentation">
             <p><%= link_to "Pass the Test!", topics_path %></p>
           </li>
+          <li role="presentation">
+            <p><%= link_to "Edit your profile" , edit_user_path(current_user) %></p>
+          </li>
   	  		<hr>
-  	  		<p><%= link_to("Logout", destroy_user_session_path) %></p>
   	  	</ul>
   	  </div>
   	</div>
