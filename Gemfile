@@ -3,8 +3,16 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+group :development, :test do
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+  gem 'sqlite3'
+end
+
+group :production do
+# Use pg in production mode
+  gem 'pg'
+end
+
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'devise_invitable', '~> 1.4.2'
@@ -26,7 +34,6 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
