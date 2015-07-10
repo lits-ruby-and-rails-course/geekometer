@@ -13,6 +13,7 @@ gem 'draper'
 gem 'pundit'
 gem "rmagick"
 gem "carrierwave"
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
