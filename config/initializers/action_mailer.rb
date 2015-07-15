@@ -4,5 +4,5 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :plain,
   :domain => 'geekometer.com',
   :user_name => 'geekometer.development@gmail.com',
-  :password  => 'IJ4-RJzgZJdK0I48iOQrnA',
+  :password  => ENV['SMTP_PASSWORD'] || 'IJ4-RJzgZJdK0I48iOQrnA'
 }
