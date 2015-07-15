@@ -10,7 +10,7 @@ end
 
 group :production do
 # Use pg in production mode
-  gem 'pg'
+  gem 'pg', '~> 0.18.2'
 end
 
 gem 'activeadmin', github: 'activeadmin'

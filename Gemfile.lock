@@ -230,7 +230,7 @@ DEPENDENCIES
   draper
   jquery-rails
   newrelic_rpm
-  pg
+  pg (~> 0.18.2)
   pundit
   rails (= 4.2.1)
   rmagick
@@ -239,3 +239,6 @@ DEPENDENCIES
   sqlite3
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.2
