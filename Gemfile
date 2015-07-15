@@ -10,7 +10,7 @@ end
 
 group :production do
 # Use pg in production mode
-  gem 'pg'
+  gem 'pg', '~> 0.18.2'
 end
 
 gem 'activeadmin', github: 'activeadmin'
@@ -22,7 +22,6 @@ gem 'pundit'
 gem "rmagick"
 gem "carrierwave"
 gem 'acts-as-taggable-on', '~> 3.4'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.4'
