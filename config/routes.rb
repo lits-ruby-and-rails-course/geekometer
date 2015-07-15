@@ -20,12 +20,11 @@ Rails.application.routes.draw do
 
 
 
-  get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
+  get 'profile' => 'pages#profile', path: "profile_path"
 
   resources :questions, only: [:index, :new, :create]
   resources :topics, only: [:index, :show, :new, :create]
   resources :users, only: [:edit, :new, :show, :testpage]
-
 
 
   # get 'topics' => 'topics#new', path: 'new_topic'
