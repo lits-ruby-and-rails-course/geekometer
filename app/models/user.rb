@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  require 'carrierwave/orm/activerecord'
+
   mount_uploader :avatar, AvatarUploader
 
 
