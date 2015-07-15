@@ -20,6 +20,7 @@ gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
 gem "rmagick"
+gem "mini_magick"
 gem "carrierwave"
 gem 'acts-as-taggable-on', '~> 3.4'
 # Use SCSS for stylesheets
