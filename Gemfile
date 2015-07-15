@@ -11,8 +11,10 @@ gem 'devise_invitable', '~> 1.4.2'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
-gem "rmagick"
-gem "carrierwave"
+gem 'rmagick'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'acts-as-taggable-on'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
