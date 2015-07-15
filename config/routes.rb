@@ -18,14 +18,18 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-
-
-  get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
   get 'test' => 'pages#tests'
+
+<<<<<<< HEAD
+  get '/app/views/pages/profile(.:html.erb)' => 'pages#profile'
+  
+=======
+  get 'profile' => 'pages#profile', path: "profile_path"
+
+>>>>>>> b1a1b99a6e37cbef800128d4f3162da952145ab3
   resources :questions, only: [:index, :new, :create]
   resources :topics, only: [:index, :show, :new, :create]
   resources :users, only: [:edit, :new, :show, :testpage]
-
 
 
   # get 'topics' => 'topics#new', path: 'new_topic'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710140954) do
+ActiveRecord::Schema.define(version: 20150715113519) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -41,9 +41,10 @@ ActiveRecord::Schema.define(version: 20150710140954) do
   create_table "questions", force: :cascade do |t|
     t.text     "condition"
     t.integer  "difficulty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "topic_id"
+    t.integer  "created_by_id"
   end
 
   add_index "questions", ["topic_id"], name: "index_questions_on_topic_id"
@@ -131,6 +132,12 @@ ActiveRecord::Schema.define(version: 20150710140954) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.string   "username"
+    t.string   "passed_tests"
+    t.integer  "approved_questions"
+    t.integer  "maximum_score"
+    t.integer  "minimum_score"
+    t.integer  "average_score"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

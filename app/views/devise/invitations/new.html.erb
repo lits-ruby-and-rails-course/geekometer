@@ -1,12 +1,21 @@
-<h2><%= t "devise.invitations.new.header" %></h2>
+<div class='container'>
+  <div class="col-sm-6 col-sm-offset-3">
+    <h2 class='center-text'><%= t "devise.invitations.new.header" %></h2>
 
-<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+      <%= devise_error_messages! %>
 
-<% resource.class.invite_key_fields.each do |field| -%>
-  <p><%= f.label field %><br />
-  <%= f.text_field field %></p>
-<% end -%>
+    <% resource.class.invite_key_fields.each do |field| -%>
+      <div class="field form-group">
+        <p><%= f.label field %><br />
+        <%= f.text_field field, autofocus: true, class: "form-control" %></p>
+      </div>
+    <% end -%>
 
-  <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
-<% end %>
+      <p div class="actions">
+        <%= f.submit t("devise.invitations.new.submit_button"), class: "btn btn-primary" %>
+        <%= link_to("Back", :back, class: "btn btn-info") %>
+      </p>
+    <% end %>
+  </div>
+</div>
