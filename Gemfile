@@ -11,6 +11,7 @@ end
 group :production do
 # Use pg in production mode
   gem 'pg', '~> 0.18.2'
+  gem 'rails_12factor'
 end
 
 gem 'activeadmin', github: 'activeadmin'
