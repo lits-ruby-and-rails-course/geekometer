@@ -1,19 +1,20 @@
+<!--<%= react_component 'Quiz', questions: @questions %>-->
 <div class="container">
   <div class="row">
     <div class="col-md-6">
       <ul class="quiz list-unstyled">
-        <% 2.times do |count| %>
-            <h4>Question <%= count.next %>:</h4>
-            <li><h3><%= random_question.condition %></h3></li>
-              <% for answer in random_question.answers %>
-                <% if answer.answer_valid %>
-                  <%= radio_button_tag(answer.question_id, 'valid') %>
-                <% else %>
-                  <%= radio_button_tag(answer.question_id, 'answer') %>
-                <% end %>
-                <%= label_tag(:solution, answer.solution) %> <br/>
-              <% end %>
-            <br/>
+        <% @questions.each do |question| %>
+          <h4>Question <%= question.id %>:</h4>
+          <li><h3><%= question.condition %></h3></li>
+          <% for answer in question.answers %>
+            <% if answer.answer_valid %>
+              <%= radio_button_tag(answer.question_id, 'valid') %>
+            <% else %>
+              <%= radio_button_tag(answer.question_id, 'answer') %>
+            <% end %>
+            <%= label_tag(:solution, answer.solution) %> <br/>
+          <% end %>
+          <br/>
         <% end %>
       </ul>
     </div>
@@ -29,8 +30,8 @@
 <div class="container">
   <div class="row">
     <h2 class="text-center">Technologies:</h2>
-    <% 3.times do  %>
-      <div class="col-md-4"><%= link_to (image_tag random_technology.logo, class: "img-responsive img-rounded"), '#' %></div>
+    <% @technologies.each do |tech|  %>
+      <div class="col-md-4"><%= link_to (image_tag tech.logo, class: "img-responsive img-rounded"), '#' %></div>
     <% end %>
   </div>
 </div>

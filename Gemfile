@@ -6,7 +6,9 @@ gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'activeadmin', github: 'activeadmin'
+gem 'react-rails'
 gem 'devise'
+gem 'database_cleaner', '~> 1.4.1'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'

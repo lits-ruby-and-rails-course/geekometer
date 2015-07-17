@@ -1,0 +1,2 @@
+DatabaseCleaner.strategy = :truncation, {:only => %w[questions question_quizzes answers topics technologies]}
+DatabaseCleaner.clean
