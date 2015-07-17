@@ -3,6 +3,6 @@
   render: ->
     React.DOM.div
       className: 'question'
-      React.DOM.p null,
+      React.DOM.h2 null,
         @props.question.condition
-#      React.DOM.p null,
+      React.createElement Answers, answers: @props.question.answers
