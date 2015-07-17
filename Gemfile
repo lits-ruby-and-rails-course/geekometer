@@ -19,9 +19,9 @@ gem 'devise_invitable', '~> 1.4.2'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
-gem "rmagick"
-gem "mini_magick"
-gem "carrierwave"
+gem 'rmagick'
+gem 'mini_magick'
+gem 'carrierwave'
 gem 'acts-as-taggable-on', '~> 3.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -46,4 +46,3 @@ group :development, :test do
 end
 
 gem 'newrelic_rpm'
-
