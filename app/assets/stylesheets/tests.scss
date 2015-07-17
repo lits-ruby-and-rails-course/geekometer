@@ -67,12 +67,15 @@
 #tab-nav-7:checked ~ .tabs > div:nth-of-type(7),
 #tab-nav-8:checked ~ .tabs > div:nth-of-type(8),
 #tab-nav-9:checked ~ .tabs > div:nth-of-type(9),
-#tab-nav-10:checked ~ .tabs > div:nth-of-type(10){
+#tab-nav-10:checked ~ .tabs > div:nth-of-type(10) {
   transform: rotateX(0deg);
   opacity: 1;
   z-index: 1;
 }
-
+#guestion_left {
+  float: right;
+  list-style-type: none;
+}
 @media screen and (max-width: 750px) {
   .tabbed { width: 400px }
   .tabbed > label { display: none }
