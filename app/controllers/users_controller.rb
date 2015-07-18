@@ -7,16 +7,10 @@ class UsersController < ApplicationController
     @users = User.all
    end
 
-  # GET /users/1
   def show
 
   end
-#
-#  # GET /users/new
-  def new
-    @User = User.new
-  end
-#
+
 #  # GET /users/1/edit
   def edit
 
@@ -24,10 +18,10 @@ class UsersController < ApplicationController
 #
 #  # POST /users
  def create
-   @User = User.new(user_params)
+   @user = User.new(user_params)
 #
-    if @User.save
-      redirect_to @User, notice: 'User was successfully created.'
+    if @user.save
+      redirect_to @user, notice: 'User was successfully created.'
     else
       render :new
     end
@@ -35,17 +29,17 @@ class UsersController < ApplicationController
 #
 #  # PATCH/PUT /users/1
   def update
-    @User=User.find(params[:id])
+    @user=User.find(params[:id])
 #    @User.avatar.store!
-    @User.avatar = params[:user][:avatar]
+    @user.avatar = params[:user][:avatar]
 
 
 #
 #   @User.save!
 
     respond_to do |format|
-      if @User.save!
-        format.html { redirect_to @User, notice: 'User was successfully updated.' }
+      if @user.save!
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
       else
         format.html { render action: 'edit' }
 
@@ -55,14 +49,14 @@ class UsersController < ApplicationController
 #
 #  # DELETE /users/1
     def destroy
-      @User.destroy
+      @user.destroy
   redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 #
   private
 #    # Use callbacks to share common setup or constraints between actions.
    def set_user
-     @User=User.find(params[:id])
+     @user=User.find(params[:id])
    end
 #
 #    # Only allow a trusted parameter "white list" through.

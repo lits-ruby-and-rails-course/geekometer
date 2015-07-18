@@ -1,0 +1,9 @@
+<% if  @test_suits.empty? %>
+    <strong>You did not complete any tests yet!!!</strong>
+<% else %>
+    <ul>
+      <% @test_suits.each do |test_suit| %>
+          <li><%= test_suit.id %></li>
+      <% end %>
+    </ul>
+<% end %>
