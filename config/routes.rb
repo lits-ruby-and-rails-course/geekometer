@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     get "/logout" => "devise/sessions#destroy"
   end
 
-
-
   ActiveAdmin.routes(self)
 
   get 'test' => 'pages#tests'
@@ -25,8 +23,10 @@ Rails.application.routes.draw do
   get 'profile' => 'pages#profile', path: "profile_path"
   resources :questions, only: [:index, :new, :create]
   resources :topics, only: [:index, :show, :new, :create]
-  resources :users, only: [:create, :edit, :new, :show, :testpage, :update]
 
+  resources :users, only: [:create, :edit, :new, :show, :testpage, :update] do
+    resources :test_suits
+  end
 
   # get 'topics' => 'topics#new', path: 'new_topic'
   # post 'topics' => 'topics#create', path: 'new_topic'

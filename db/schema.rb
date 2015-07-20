@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717135016) do
+ActiveRecord::Schema.define(version: 20150718061042) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -24,9 +27,9 @@ ActiveRecord::Schema.define(version: 20150717135016) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150717135016) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.text     "condition"
@@ -46,9 +49,20 @@ ActiveRecord::Schema.define(version: 20150717135016) do
     t.integer  "topic_id"
     t.integer  "created_by_id"
     t.boolean  "approved"
+<<<<<<< HEAD
   end
 
-  add_index "questions", ["topic_id"], name: "index_questions_on_topic_id"
+  add_index "questions", ["topic_id"], name: "index_questions_on_topic_id", using: :btree
+
+  create_table "questions_test_suits", force: :cascade do |t|
+    t.integer "test_suit_id"
+    t.integer "question_id"
+=======
+>>>>>>> master
+  end
+
+  add_index "questions_test_suits", ["question_id"], name: "index_questions_test_suits_on_question_id", using: :btree
+  add_index "questions_test_suits", ["test_suit_id"], name: "index_questions_test_suits_on_test_suit_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -60,15 +74,15 @@ ActiveRecord::Schema.define(version: 20150717135016) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "technologies", force: :cascade do |t|
     t.string   "name"
@@ -84,24 +98,17 @@ ActiveRecord::Schema.define(version: 20150717135016) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "test_suit_answers", ["answer_id"], name: "index_test_suit_answers_on_answer_id"
-  add_index "test_suit_answers", ["test_suit_id"], name: "index_test_suit_answers_on_test_suit_id"
+  add_index "test_suit_answers", ["answer_id"], name: "index_test_suit_answers_on_answer_id", using: :btree
+  add_index "test_suit_answers", ["test_suit_id"], name: "index_test_suit_answers_on_test_suit_id", using: :btree
 
   create_table "test_suits", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "completed"
   end
 
-  add_index "test_suits", ["user_id"], name: "index_test_suits_on_user_id"
-
-  create_table "test_suits_questions", force: :cascade do |t|
-    t.integer "test_suit_id"
-    t.integer "question_id"
-  end
-
-  add_index "test_suits_questions", ["question_id"], name: "index_test_suits_questions_on_question_id"
-  add_index "test_suits_questions", ["test_suit_id"], name: "index_test_suits_questions_on_test_suit_id"
+  add_index "test_suits", ["user_id"], name: "index_test_suits_on_user_id", using: :btree
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
@@ -141,10 +148,10 @@ ActiveRecord::Schema.define(version: 20150717135016) do
     t.integer  "average_score"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

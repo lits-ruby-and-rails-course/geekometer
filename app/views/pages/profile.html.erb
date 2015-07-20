@@ -9,7 +9,9 @@
 <br>
 
 <div align="center">
-<button type="button" class="btn btn-default btn-lg"><%= link_to "Create New Question", new_question_path %></button> 
+<button type="button" class="btn btn-link btn-lg"><%= button_to("Create New Topic", controller: "topics", action: "new") %></button>
+<br>
+<button type="button" class="btn btn-link btn-lg"><%= button_to "Create New Question", new_question_path %></button> 
 </div>
 <br>
 <br>
@@ -27,18 +29,3 @@
 		<p>Number of approved questions: <%=current_user.approved_questions%></p>
 	</div>
 </div>
-
-<br>
-
-<br>
-<br>
-
-
-
-
-
-
-
-  
-
-
