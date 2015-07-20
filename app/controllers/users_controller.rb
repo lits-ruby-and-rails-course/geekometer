@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @User=User.find(params[:id])
 #    @User.avatar.store!
     @User.avatar = params[:user][:avatar]
-
+    @User.username = params[:user][:username]
 
 #
 #   @User.save!
