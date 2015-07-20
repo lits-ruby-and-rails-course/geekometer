@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150718061042) do
     t.integer  "topic_id"
     t.integer  "created_by_id"
     t.boolean  "approved"
+<<<<<<< HEAD
   end
 
   add_index "questions", ["topic_id"], name: "index_questions_on_topic_id", using: :btree
@@ -56,6 +57,8 @@ ActiveRecord::Schema.define(version: 20150718061042) do
   create_table "questions_test_suits", force: :cascade do |t|
     t.integer "test_suit_id"
     t.integer "question_id"
+=======
+>>>>>>> master
   end
 
   add_index "questions_test_suits", ["question_id"], name: "index_questions_test_suits_on_question_id", using: :btree

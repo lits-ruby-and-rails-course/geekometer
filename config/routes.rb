@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'profile' => 'pages#profile', path: "profile_path"
   resources :questions, only: [:index, :new, :create]
   resources :topics, only: [:index, :show, :new, :create]
+
   resources :users, only: [:create, :edit, :new, :show, :testpage, :update] do
     resources :test_suits
   end

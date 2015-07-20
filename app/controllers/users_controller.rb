@@ -30,10 +30,9 @@ class UsersController < ApplicationController
 #  # PATCH/PUT /users/1
   def update
     @user=User.find(params[:id])
-#    @User.avatar.store!
+#    @user.avatar.store!
     @user.avatar = params[:user][:avatar]
-
-
+    @user.username = params[:user][:username]
 #
 #   @User.save!
 
@@ -48,9 +47,9 @@ class UsersController < ApplicationController
   end
 #
 #  # DELETE /users/1
-    def destroy
-      @user.destroy
-  redirect_to users_url, notice: 'User was successfully destroyed.'
+  def destroy
+    @user.destroy
+    redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 #
   private
