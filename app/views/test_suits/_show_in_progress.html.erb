@@ -1,0 +1,27 @@
+<div class="tabbed">
+  <% questions = @test_suit.questions %>
+  <% questions.each_with_index do |question, i| %>
+      <% element_id = "tab-nav-#{question.id}" %>
+      <input type="radio" name="tabs" id="<%= element_id %>" <% if i==0 %>checked<%end%>>
+      <label for="<%= element_id %>">Question <%= i + 1 %></label>
+  <% end %>
+  <%= form_tag user_test_suit_complete_path(test_suit_id: @test_suit.id), method: 'post' do %>
+      <div class="tabs">
+        <% questions.each_with_index do |question, i| %>
+            <div><h2>Question <%= i + 1 %></h2>
+              <ul class="answer_left" float="right" list-style-type="none">
+                <% question.answers.each_with_index do |answer, j| %>
+                    <% element_id = "tab_question_#{question.id}_#{answer.id}" %>
+                    <li><input type="radio" name="<%= question.id %>" id="<%= element_id %>" value="<%= answer.id %>">
+                      <label for="<%= element_id %>"><%= answer.solution %></label></li>
+                <% end %>
+              </ul>
+              <p>
+                <%= question.condition %>
+              </p>
+            </div>
+        <% end %>
+      </div>
+      <%= submit_tag "Complete Test" %>
+  <% end %>
+</div>

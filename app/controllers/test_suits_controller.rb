@@ -12,4 +12,13 @@ class TestSuitsController < ApplicationController
   def show
     @test_suit = TestSuit.find(params[:id])
   end
+
+  def complete
+    test_suit = TestSuit.find(params[:test_suit_id])
+    # set test_suite_answers
+    test_suit.complete!
+    test_suit.save!
+    redirect_to user_test_suit_path(current_user, test_suit)
+    # @p = params
+  end
 end
