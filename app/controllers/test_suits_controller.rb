@@ -6,7 +6,6 @@ class TestSuitsController < ApplicationController
 
   def new
     test_suit = TestSuit.create(user_id: current_user)
-    test_suit.set_questions!
     redirect_to user_test_suit_path(current_user, test_suit)
   end
 
