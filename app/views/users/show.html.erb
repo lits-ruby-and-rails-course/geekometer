@@ -1,22 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-md-2">
+		<h1><%=current_user.username%></h1>
+        <h1><%=current_user.email%></h1>
+	</div>
+	<div class="col-md-10" style="padding-top:24px;"><button type="button" class="btn btn-default btn-md"><%= link_to 'Edit your Profile', edit_user_path(current_user) %></button>
+	</div>
+</div>
+<br>
 
-<p> <%= "User Email"%>
-  <%=current_user.email %>
+<div align="center">
+<button type="button" class="btn btn-link btn-lg"><%= button_to("Create New Topic", controller: "topics", action: "new") %></button>
+<br>
+<button type="button" class="btn btn-link btn-lg"><%= button_to "Create New Question", new_question_path %></button> 
+</div>
+<br>
+<br>
+<br>
 
-<p> <%= "User Name"%>
-  <%=current_user.username %>
-</p>
-<p><%="Avatar" %>
-
-  <%= image_tag(current_user.avatar.url) if current_user.avatar? %>
-  <%= "Thumb of Avatar" %>
-  <%= image_tag(current_user.avatar.url(:thumb)) if current_user.avatar? %>
-
-</p>
-
-<p>
-  <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-</p>
-<p>
-<%= link_to 'Back to Welcome Page', root_path(current_user) %>
-</p>
+<div class="row">
+	<div class="col-md-5">
+		<p><%= image_tag(current_user.avatar.url) if current_user.avatar? %></p>
+		<h4> <%=current_user.passed_tests%> passed tests</h4>
+	</div>
+	<div class="col-md-7">
+		<p>Average score: <%=current_user.average_score%></p>
+		<p>Maximum score: <%=current_user.maximum_score%></p>
+		<p>Minumum score: <%=current_user.minimum_score%></p>
+		<p>Number of approved questions: <%=current_user.approved_questions%></p>
+	</div>
+</div>

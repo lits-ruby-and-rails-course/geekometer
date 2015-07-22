@@ -7,7 +7,7 @@
       <% if user_signed_in? %>
         <%= link_to 'Invite Friend', new_user_invitation_path, class: "navbar-brand pull-right" %>
         <%= link_to "Logout", destroy_user_session_path, class: "navbar-brand pull-right" %>
-        <%= link_to "Profile", profile_path, class: "navbar-brand pull-right" %>
+        <%= link_to "Profile", user_path(current_user), class: "navbar-brand pull-right" %>
         <% else %>
           <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
       <% end %>
