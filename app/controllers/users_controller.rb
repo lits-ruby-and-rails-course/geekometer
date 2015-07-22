@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
+
   before_action :authenticate_user!
   before_action :set_user, only: [:new,  :show, :edit, :update, :destroy,:user_params]
 
@@ -30,11 +33,10 @@ class UsersController < ApplicationController
 #  # PATCH/PUT /users/1
   def update
     @user=User.find(params[:id])
-#    @user.avatar.store!
     @user.avatar = params[:user][:avatar]
     @user.username = params[:user][:username]
-#
-#   @User.save!
+    @user.save!
+    @user.avatar.store!
 
     respond_to do |format|
       if @user.save!
