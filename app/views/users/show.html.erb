@@ -8,9 +8,13 @@
 </p>
 <p><%="Avatar" %>
 
+  <%=if current_user.avatar? then else image_tag(current_user.avatar.default_url) end %>
   <%= image_tag(current_user.avatar.url) if current_user.avatar? %>
   <%= "Thumb of Avatar" %>
   <%= image_tag(current_user.avatar.url(:thumb)) if current_user.avatar? %>
+  <%= "Usable Avatar" %>
+  <%= image_tag(current_user.avatar.url(:usable)) if current_user.avatar? %>
+
 
 </p>
 
