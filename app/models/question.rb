@@ -25,6 +25,7 @@ class Question < ActiveRecord::Base
 
   scope :approved, -> { where(approved: true) }
   scope :for_test_suit, -> { approved.order("RANDOM()").limit(3) }
+  scope :correct, -> { joins(:answers).where(answers: { answer_valid: true}) }
 
   def approve!
     update_attribute(:approved, true)

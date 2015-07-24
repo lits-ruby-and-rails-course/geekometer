@@ -37,7 +37,7 @@
 
 .tabbed > label:hover,
 .tabbed > input:checked + label {
-  background: #FF1804;
+  background: #89C0A8;
 }
 
 .tabs {
@@ -48,7 +48,6 @@
 .tabs > div {
   width: 1000px;
   position: absolute;
-  border: 2px solid #FF1804;
   padding: 10px 30px 40px;
   line-height: 1.4em;
   opacity: 0;

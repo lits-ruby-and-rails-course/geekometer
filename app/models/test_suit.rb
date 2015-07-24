@@ -12,6 +12,7 @@
 class TestSuit < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :questions
+  has_many :test_suit_answers
 
   after_create do
     self.questions = Question.for_test_suit
@@ -21,5 +22,15 @@ class TestSuit < ActiveRecord::Base
 
   def complete!
     self.completed = true
+  end
+
+  def build_test_suit_answers(answers)
+    answers.each do |_, answer_id|
+      test_suit_answers << TestSuitAnswer.new(answer_id: answer_id)
+    end
+  end
+
+  def statistics
+    "#{test_suit_answers.correct.count} / #{questions.correct.count}"
   end
 end

@@ -5,7 +5,7 @@ class TestSuitsController < ApplicationController
   end
 
   def new
-    @test_suit = TestSuit.create(user_id: current_user)
+    @test_suit = TestSuit.create(user: current_user)
     if @test_suit.questions.empty?
       redirect_to root_path, flash: { error: "There is not enaught questions" }
     end
@@ -17,10 +17,9 @@ class TestSuitsController < ApplicationController
 
   def complete
     test_suit = TestSuit.find(params[:test_suit_id])
-    # set test_suite_answers
+    test_suit.build_test_suit_answers(params[:test_suit_answers])
     test_suit.complete!
     test_suit.save!
-    redirect_to user_test_suit_path(current_user, test_suit)
-    # @p = params
+    redirect_to user_test_suit_path(test_suit.user, test_suit)
   end
 end

@@ -12,4 +12,6 @@
 class TestSuitAnswer < ActiveRecord::Base
   belongs_to :test_suit
   belongs_to :answer
+
+  scope :correct, -> { joins(:answer).where(answers: { answer_valid: true}) }
 end

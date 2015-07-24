@@ -3,11 +3,11 @@
   <% questions.each_with_index do |question, i| %>
       <% element_id = "tab-nav-#{i+1}" %>
       <input type="radio" name="tabs" id="<%= element_id %>" <% if i==0 %>checked<%end%>>
-      <label for="<%= element_id %>">Question <%= i + 1 %></label>
+      <label class="btn btn-default" for="<%= element_id %>">Question <%= i + 1 %></label>
   <% end %>
   <%= form_tag user_test_suit_complete_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
       <br>
-      <%= submit_tag "Complete Test" %>
+      <%= submit_tag "Complete Test", class: 'btn btn-primary' %>
       <hr>
       <% questions.each_with_index do |question, i| %>
           <div>
@@ -19,7 +19,7 @@
               <% question.answers.each_with_index do |answer, j| %>
                   <% element_id = "tab_question_#{question.id}_#{answer.id}" %>
                   <li>
-                    <input type="checkbox" name="<%= question.id %>" id="<%= element_id %>" value="<%= answer.id %>">
+                    <input type="checkbox" name="test_suit_answers[<%= question.id %>]" id="<%= element_id %>" value="<%= answer.id %>">
                     <label for="<%= element_id %>"><%= answer.solution %></label></li>
               <% end %>
             </ul>
