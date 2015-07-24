@@ -10,7 +10,11 @@
       <%= submit_tag "Complete Test" %>
       <hr>
       <% questions.each_with_index do |question, i| %>
-          <div><h2>Question <%= i + 1 %></h2>
+          <div>
+            <h2>Question <%= i + 1 %></h2>
+            <% if question.answers.where(answer_valid: true).count > 1 %>
+              <h6>(Has mulltiple correct answers)</h6>
+            <% end %>
             <ul class="answer_left" float="right" list-style-type="none">
               <% question.answers.each_with_index do |answer, j| %>
                   <% element_id = "tab_question_#{question.id}_#{answer.id}" %>
