@@ -17,7 +17,6 @@
             <li><%= link_to "Invite friend", new_user_invitation_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path %></li>
             </ul>
-          </div>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
       <% end %>
