@@ -5,8 +5,10 @@ class TestSuitsController < ApplicationController
   end
 
   def new
-    test_suit = TestSuit.create(user_id: current_user)
-    redirect_to user_test_suit_path(current_user, test_suit)
+    @test_suit = TestSuit.create(user_id: current_user)
+    if @test_suit.questions.empty?
+      redirect_to root_path, flash: { error: "There is not enaught questions" }
+    end
   end
 
   def show

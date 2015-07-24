@@ -1,5 +1,6 @@
 <div class="tabbed">
   <% questions = @test_suit.questions %>
+  <% qwer %>
   <% questions.each_with_index do |question, i| %>
       <% element_id = "tab-nav-#{question.id}" %>
       <input type="radio" name="tabs" id="<%= element_id %>" <% if i==0 %>checked<%end%>>
