@@ -11,16 +11,13 @@
   	  		<li role="presentation">
   	  			<p><%= link_to("Create New Topic", controller: "topics", action: "new") %></p>
   	  		</li>
-          <li role="presentation">
-            <p><%= link_to "Create New Question", new_question_path %></p>
-          </li>
-          <li role="presentation">
-            <p><%= link_to "Pass the Test!", new_user_test_suit_path(current_user) %></p>
-          </li>
-          <li role="presentation">
-            <p><%= link_to "Edit Your Profile" , edit_user_path(current_user) %></p>
-          </li>
-  	  		<hr>
+            <li role="presentation">
+                <p><%= link_to "Create New Question", new_question_path %></p>
+            </li>
+            <li role="presentation">
+                <p><%= link_to "Pass the Test!", new_user_test_suit_path(current_user) %></p>
+            </li>
+          </hr>
   	  	</ul>
   	  </div>
   	</div>
