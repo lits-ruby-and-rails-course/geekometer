@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   resources :topics, only: [:index, :show, :new, :create]
 
   resources :users, only: [:create, :edit, :new, :show, :testpage, :update] do
-    resources :test_suits
+    resources :test_suits, only: [:index, :new, :show] do
+      post :complete
+    end
   end
 
 end
