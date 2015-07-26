@@ -8,9 +8,10 @@
         <%= link_to 'Invite Friend', new_user_invitation_path, class: "navbar-brand pull-right" %>
         <%= link_to "Logout", destroy_user_session_path, class: "navbar-brand pull-right" %>
         <%= link_to "Profile", user_path(current_user), class: "navbar-brand pull-right" %>
+
         <%= link_to "START TEST", new_user_test_suit_path(current_user), class: "navbar-brand nav nav-center" %>
         <p style="text-align: center; font-size: 25px; margin-top: 7px"><%= link_to "START TEST", new_user_test_suit_path(current_user)%></p>
-        
+
         <% else %>
           <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
       <% end %>
