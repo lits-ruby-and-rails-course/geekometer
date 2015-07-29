@@ -24,7 +24,7 @@ class Question < ActiveRecord::Base
                                 allow_destroy: true
 
   scope :approved, -> { where(approved: true) }
-  scope :for_test_suit, -> { approved.order("RANDOM()").limit(3) }
+  scope :for_test_suit, -> { approved.order("RANDOM()").limit(10) }
   scope :correct, -> { joins(:answers).where(answers: { answer_valid: true}) }
 
   def approve!

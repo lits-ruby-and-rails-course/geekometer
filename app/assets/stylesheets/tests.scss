@@ -75,6 +75,11 @@
   float: right;
   list-style-type: none;
 }
+
+.complete_bottom {
+  position: relative; top: 600px; 
+}
+
 @media screen and (max-width: 750px) {
   .tabbed { width: 400px }
   .tabbed > label { display: none }
@@ -90,5 +95,8 @@
   .tabs > div h2 {
     border-bottom: 2px solid #FF0404;
     padding-bottom: .5em;
+  }
+  .complete_bottom {
+  position: relative; top: 100%; right: -70%;
   }
 }

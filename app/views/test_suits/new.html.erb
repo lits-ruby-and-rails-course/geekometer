@@ -7,7 +7,9 @@
   <% end %>
   <%= form_tag user_test_suit_complete_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
       <br>
-      <%= submit_tag "Complete Test", class: 'btn btn-primary' %>
+
+      <p class="complete_bottom" ><%= submit_tag "Complete Test", class: 'btn btn-primary' %></p>
+
       <hr>
       <% questions.each_with_index do |question, i| %>
           <div>
