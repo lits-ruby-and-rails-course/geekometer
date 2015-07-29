@@ -9,7 +9,7 @@
       <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.username%> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag(current_user.avatar.url(:small)) if current_user.avatar? %> <%=current_user.username%> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <div class="dropdown-header">Signed in as <strong><%=current_user.username%></strong></div>
             <li role="separator" class="divider"></li>
