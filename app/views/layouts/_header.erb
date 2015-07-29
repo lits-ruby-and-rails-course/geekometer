@@ -1,24 +1,16 @@
+
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href=""><%= image_tag"Geekometer LOGO1.jpg", width: '30', height: '30' %></a>
+      <a class="navbar-brand" href="#"><%= image_tag"Geekometer LOGO1.jpg", width: '30', height: '30' %></a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <h2 style="position: absolute; width: 65%; text-align: center; margin-top: 7px; font-size: 25px; " ><%= link_to "START GEKOMETER TEST", new_user_test_suit_path(current_user)%></h2>
       <% if user_signed_in? %>
-<<<<<<< HEAD
-        <%= link_to 'Invite Friend', new_user_invitation_path, class: "navbar-brand pull-right" %>
-        <%= link_to "Logout", destroy_user_session_path, class: "navbar-brand pull-right" %>
-        <%= link_to "Profile", user_path(current_user), class: "navbar-brand pull-right" %>
-
-        <%= link_to "START TEST", new_user_test_suit_path(current_user), class: "navbar-brand nav nav-center" %>
-        <p style="text-align: center; font-size: 25px; margin-top: 7px"><%= link_to "START TEST", new_user_test_suit_path(current_user)%></p>
-
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
-=======
         <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.username%> <span class="caret"></span></a>
+           
           <ul class="dropdown-menu">
             <div class="dropdown-header">Signed in as <strong><%=current_user.username%></strong></div>
             <li role="separator" class="divider"></li>
@@ -28,9 +20,10 @@
             <li><%= link_to "Invite friend", new_user_invitation_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path %></li>
             </ul>
+            
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
->>>>>>> d50422b73cf7613912d93ae774d937cf8ab1c8ea
+
       <% end %>
     </div>
   </div>
