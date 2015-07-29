@@ -28,9 +28,12 @@
 
 .tabbed > label {
   display: block;
+  width: 130px;
+  height: 50px;
   float: left;
   padding: 12px 20px;
   margin-right: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
   transition: background-color .3s;
 }
@@ -77,14 +80,15 @@
 }
 
 .complete_bottom {
-  position: relative; top: 600px; 
+  position: fixed; top: 600px; 
 }
 
 @media screen and (max-width: 750px) {
-  .tabbed { width: 400px }
+  .tabbed { width: 400px; height: auto; }
   .tabbed > label { display: none }
   .tabs > div {
     width: 400px;
+    height: auto;
     border: none;
     padding: 0;
     opacity: 1;
@@ -97,6 +101,9 @@
     padding-bottom: .5em;
   }
   .complete_bottom {
-  position: relative; top: 100%; right: -70%;
+  width: 20px;
+  height: 150px;
+  position: fixed; bottom: 150%;
+
   }
 }
