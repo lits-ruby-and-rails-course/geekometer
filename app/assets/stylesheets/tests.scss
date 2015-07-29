@@ -101,9 +101,6 @@
     padding-bottom: .5em;
   }
   .complete_bottom {
-  width: 20px;
-  height: 150px;
-  position: fixed; bottom: 150%;
-
+  position: relative; top: 100%; right: -70%;
   }
 }
