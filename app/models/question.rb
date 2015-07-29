@@ -1,7 +1,9 @@
 class Question < ActiveRecord::Base
   validates :condition, presence: true, length: { maximum: 255 }
   validates_presence_of :topic_id
-
+  def status_enum
+    [['Approved', 1],['Pending',0],['Rejected',2]]
+  end
   has_many :answers, :dependent => :destroy
   has_and_belongs_to_many :test_suits
   belongs_to :topic
