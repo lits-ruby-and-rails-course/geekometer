@@ -5,6 +5,7 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if user_signed_in? %>
+<<<<<<< HEAD
         <%= link_to 'Invite Friend', new_user_invitation_path, class: "navbar-brand pull-right" %>
         <%= link_to "Logout", destroy_user_session_path, class: "navbar-brand pull-right" %>
         <%= link_to "Profile", user_path(current_user), class: "navbar-brand pull-right" %>
@@ -14,6 +15,22 @@
 
         <% else %>
           <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
+=======
+        <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.username%> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div class="dropdown-header">Signed in as <strong><%=current_user.username%></strong></div>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><a href="#">Your geekorating</a></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Invite friend", new_user_invitation_path %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path %></li>
+            </ul>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
+>>>>>>> d50422b73cf7613912d93ae774d937cf8ab1c8ea
       <% end %>
     </div>
   </div>
