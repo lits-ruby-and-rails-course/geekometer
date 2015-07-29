@@ -151,4 +151,11 @@ ActiveRecord::Schema.define(version: 20150718061042) do
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "topics"
+  add_foreign_key "questions_test_suits", "questions"
+  add_foreign_key "questions_test_suits", "test_suits"
+  add_foreign_key "test_suit_answers", "answers"
+  add_foreign_key "test_suit_answers", "test_suits"
+  add_foreign_key "test_suits", "users"
 end
