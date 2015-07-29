@@ -11,10 +11,19 @@
 	</div>
 	<div class="col-md-2"><%= link_to "Edit profile", edit_user_path(current_user), class: "btn btn-default"%>
 	</div>
-	<hr style="height:50pt"/>
+	<hr style="height:50pt; visibility:hidden;"/>
 	<div align="center">
 		<%= link_to "Create new question", new_question_path, class: "btn btn-default btn-lg"%>
 	</div>
+	<hr style="height:50pt; visibility:hidden;"/>
+	<div class="col-md-6"><font size="5">Skills: </font>
+	<div class="skills">
+	<%  current_user.topics.each do |topic| %>
+	<label><input type="checkbox" name="skills[]" value="<%= topic.id %>" checked="checked" disabled="disabled"><%= topic.name %></label>
+	<% end %>
 </div>
+	</div>
+</div>
+
 
 <p><h2><%=current_user.username%></h2></p>

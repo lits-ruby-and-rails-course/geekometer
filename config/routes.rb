@@ -24,7 +24,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :edit, :new, :show, :testpage, :update] do
     resources :test_suits
+    resources :skills, only: [:index] do
+      collection do
+        patch :update
+      end
+    end
   end
+
+
 
   # get 'topics' => 'topics#new', path: 'new_topic'
   # post 'topics' => 'topics#create', path: 'new_topic'
