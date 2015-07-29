@@ -5,8 +5,9 @@
       <a class="navbar-brand" href="#"><%= image_tag"Geekometer LOGO1.jpg", width: '30', height: '30' %></a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       <h2 style="position: absolute; width: 65%; text-align: center; margin-top: 7px; font-size: 25px; " ><%= link_to "START GEKOMETER TEST", new_user_test_suit_path(current_user)%></h2>
+       
       <% if user_signed_in? %>
+      <p style="position: absolute; width: 65%; text-align: center; margin-top: 7px; font-size: 25px; " ><%= link_to "START GEKOMETER TEST", new_user_test_suit_path(current_user)%></p>
         <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.username%> <span class="caret"></span></a>
