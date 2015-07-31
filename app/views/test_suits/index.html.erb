@@ -1,9 +1,51 @@
-<% if  @test_suits.empty? %>
-    <strong>You did not complete any tests yet!!!</strong>
-<% else %>
-    <ul>
-      <% @test_suits.each do |test_suit| %>
-          <li><%= test_suit.id %></li>
-      <% end %>
-    </ul>
-<% end %>
+<div class='container row'>
+
+    <% if  @test_suits.empty? %>
+      <div class="col-md-12">
+        <strong>You did not complete any tests yet!!!</strong>
+      </div>
+    <% end %>
+    <div class="col-md-6">
+        <% @test_suits.each_with_index do |test_suit, index|%>
+            <div>
+              <p>
+                <%="Test #"%>
+                <%= [index+1, test_suit.created_at.strftime("Passed On %m-%d-%Y")].join(" ") %>
+
+                <code>
+                <%= "  With Result  " %>
+                  <%= test_suit.statistics%>
+                </code>
+              </p>
+            </div>
+        <%end%>
+    </div>
+    <div class="col-md-6">
+      <div id=graph></div>
+      <script>
+
+
+          Morris.Donut({
+              element: 'graph',
+              data: [
+                  {
+                      value: <%=10%>,
+                      label: 'Correct'
+                  },{
+                      value: <%=90%>,
+                      label: 'Incorrect'
+                  }
+              ],
+              backgroundColor: '#ccc',
+              colors: [
+                  '#0BA462',
+                  '#d9534f'
+              ],
+              formatter: function (x) {
+                  return x + "%"
+              }
+          });
+      </script>
+    </div>
+
+</div>
