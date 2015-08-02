@@ -28,16 +28,19 @@
 
 .tabbed > label {
   display: block;
+  width: 130px;
+  height: 50px;
   float: left;
   padding: 12px 20px;
   margin-right: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
   transition: background-color .3s;
 }
 
 .tabbed > label:hover,
 .tabbed > input:checked + label {
-  background: #FF1804;
+  background: #89C0A8;
 }
 
 .tabs {
@@ -48,7 +51,6 @@
 .tabs > div {
   width: 1000px;
   position: absolute;
-  border: 2px solid #FF1804;
   padding: 10px 30px 40px;
   line-height: 1.4em;
   opacity: 0;
@@ -76,11 +78,17 @@
   float: right;
   list-style-type: none;
 }
+
+.complete_bottom {
+  position: fixed; top: 600px; 
+}
+
 @media screen and (max-width: 750px) {
-  .tabbed { width: 400px }
+  .tabbed { width: 400px; height: auto; }
   .tabbed > label { display: none }
   .tabs > div {
     width: 400px;
+    height: auto;
     border: none;
     padding: 0;
     opacity: 1;
@@ -91,5 +99,8 @@
   .tabs > div h2 {
     border-bottom: 2px solid #FF0404;
     padding-bottom: .5em;
+  }
+  .complete_bottom {
+  position: relative; top: 100%; right: -70%;
   }
 }

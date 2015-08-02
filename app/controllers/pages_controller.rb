@@ -1,10 +1,13 @@
 class PagesController < ApplicationController
+  def profile
+  end
+
   def welcome
   end
 
   def start
   end
 
-  def profile
+  def show
   end
 end
