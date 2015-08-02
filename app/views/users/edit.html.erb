@@ -19,3 +19,11 @@
     <% end %>
     <%= link_to 'Show Full Profile!', user_path(current_user)%>
 <% end %>
+
+<div class="skills">
+<% Topic.all.each do |topic| %>
+<label><input type="checkbox" value="<%= topic.id%>"><%= topic.name%></label>
+<% end %>
+</div>
+
+<%= link_to 'Show Full Profile!', user_path(current_user)%>
