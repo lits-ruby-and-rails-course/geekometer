@@ -1,24 +1,29 @@
-<h1>Editind User Profile</h1>
-
-
-<%= form_for current_user, :html => {:multipart => true} do |f| %>
-    <p>
-      <%= image_tag(current_user.avatar_url) if current_user.avatar? %>
+<% if user_signed_in? %>
+    <p style="font-size: 25px; ">
+      <%= "Editing User Profile"%>
     </p>
-
-      <%= "Upload image" %>
-            <%= f.file_field :avatar %>
-            <%= f.hidden_field :avatar_cache %>
-
-        <%= "User Name"%> <%=current_user.username %>
-
-      <%= f.text_field (:username) %>
-
+    <%= form_for current_user, :html => {:multipart => true} do |f| %>
+        <p>
+             <%= image_tag(current_user.avatar_url) if current_user.avatar? %>
+        </p>
+        <p>
+             <%= "Upload image" %>
+             <%= f.file_field :avatar %>
+             <%= f.hidden_field :avatar_cache %>
+             <%= "User Name"%> <%=current_user.username %>
+             <%= f.text_field (:username) %>
+        </p>
         <div class="actions">
-              <%= f.submit %>
-      </div>
-    </p>
-
+          <%= f.submit %>
+        </div>
+    <% end %>
+    <%= link_to 'Show Full Profile!', user_path(current_user)%>
 <% end %>
+
+<div class="skills">
+<% Topic.all.each do |topic| %>
+<label><input type="checkbox" value="<%= topic.id%>"><%= topic.name%></label>
+<% end %>
+</div>
 
 <%= link_to 'Show Full Profile!', user_path(current_user)%>
