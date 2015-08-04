@@ -1,7 +1,7 @@
 @Quiz = React.createClass
   getInitialState: ->
     didFetchData: false
-    questions: []
+    questions: JSON.parse(@props.data) 
 
   componentDidMount: ->
     @fetchPeople({})
