@@ -5,7 +5,7 @@
       <input type="radio" name="tabs" id="<%= element_id %>" <% if i==0 %>checked<%end%>>
       <label class="btn btn-default" for="<%= element_id %>">Question <%= i + 1 %></label>
   <% end %>
-  <%= form_tag user_test_suit_complete_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
+  <%= form_tag  new_user_test_suit_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
       <br>
 
       <p class="complete_bottom" ><%= submit_tag "Complete Test", class: 'btn btn-primary' %></p>
@@ -15,7 +15,7 @@
           <div>
             <h2>Question <%= i + 1 %></h2>
             <% if question.answers.where(answer_valid: true).count > 1 %>
-              <h6>(Has mulltiple correct answers)</h6>
+                <h6>(Has mulltiple correct answers)</h6>
             <% end %>
             <ul class="answer_left" float="right" list-style-type="none">
               <% question.answers.each_with_index do |answer, j| %>
