@@ -1,0 +1,9 @@
+<div class="skills">
+<%= form_for user, :url => url_for(controller: :skills, action: :update) do %>
+	<% user_topics_ids = user.topics.map &:id %>
+	<% Topic.all.each do |topic| %>
+	<label><input type="checkbox" name="skills[]" value="<%= topic.id %>" <% if user_topics_ids.include?(topic.id) %>checked="checked"<%end%>><%= topic.name %></label>
+	<% end %>
+	<input type="submit" />
+<% end %>
+</div>

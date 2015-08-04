@@ -30,6 +30,10 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem 'morrisjs-rails'
+gem 'raphael-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -39,6 +43,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem "better_errors",      '1.1.0'
+  gem "binding_of_caller",  '0.7.2'
 end
 
 gem 'newrelic_rpm'

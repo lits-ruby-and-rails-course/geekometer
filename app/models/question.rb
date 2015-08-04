@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id            :integer          not null, primary key
+#  condition     :text
+#  difficulty    :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  topic_id      :integer
+#  created_by_id :integer
+#  approved      :boolean
+#
+
 class Question < ActiveRecord::Base
   validates :condition, presence: true, length: { maximum: 255 }
   validates_presence_of :topic_id
@@ -12,5 +26,10 @@ class Question < ActiveRecord::Base
                                 allow_destroy: true
 
   scope :approved, -> { where(approved: true) }
-  scope :for_test_suit, -> { approved.order("RANDOM()").limit(3) }
+  scope :for_test_suit, -> { approved.order("RANDOM()").limit(10) }
+  scope :correct, -> { joins(:answers).where(answers: { answer_valid: true}) }
+
+  def approve!
+    update_attribute(:approved, true)
+  end
 end
