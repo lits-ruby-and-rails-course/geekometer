@@ -1,29 +1,39 @@
-<div class="row">
+  <div class="row">
 	<div class="col-md-4">
-		<%=if current_user.avatar.url.nil?
+      <p><h2><%=current_user.username%></h2></p>
+      <%=if current_user.avatar.url.nil?
 		   then
        			image_tag(current_user.avatar.default_url)
            else
        			image_tag(current_user.avatar.url)
      	   end %>
 	</div>
-	<div class="col-md-6"><font size="5">Current geekness:	</font>
+	<div class="col-md-4"><font size="5">Current geekness:	</font>
 	</div>
-	<div class="col-md-2"><%= link_to "Edit profile", edit_user_path(current_user), class: "btn btn-default"%>
-	</div>
-	<hr style="height:50pt; visibility:hidden;"/>
-	<div align="center">
-		<%= link_to "Create new question", new_question_path, class: "btn btn-default btn-lg"%>
-	</div>
-	<hr style="height:50pt; visibility:hidden;"/>
-	<div class="col-md-6"><font size="5">Skills: </font>
-	<div class="skills">
-	<%  current_user.topics.each do |topic| %>
-	<label><input type="checkbox" name="skills[]" value="<%= topic.id %>" checked="checked" disabled="disabled"><%= topic.name %></label>
-	<% end %>
-</div>
-	</div>
-</div>
+    <div class="col-md-2">
+        <%=if current_user.admin?
+           then
+             link_to "Admin Panel", admin_root_path, class: "btn btn-default"
+           else
+           end %>
+        <%= link_to "Edit profile", edit_user_path(current_user), class: "btn btn-default"%>
+        <%= link_to "Create new question", new_question_path, class: "btn btn-default"%>
+        <%= link_to "Your Statistics", user_test_suits_path(current_user), class: "btn btn-default"%>
+    </div>
 
+  <div class="col-md-7"><font size="7 "> </font>
+    <p>Average score: <%=current_user.average_score%></p>
+    <p>Maximum score: <%=current_user.maximum_score%></p>
+    <p>Minumum score: <%=current_user.minimum_score%></p>
+    <p>Number of approved questions: <%=current_user.approved_questions%></p>
+  </div>
 
-<p><h2><%=current_user.username%></h2></p>
+  <hr style="height:50pt; visibility:hidden;"/>
+  <div class="col-md-6"><font size="5">Skills: </font>
+    <div class="skills">
+      <%  current_user.topics.each do |topic| %>
+          <label><input type="checkbox" name="skills[]" value="<%= topic.id %>" checked="checked" disabled="disabled"><%= topic.name %></label>
+      <% end %>
+    </div>
+  </div>
+</div>

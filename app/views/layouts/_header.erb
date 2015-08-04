@@ -1,17 +1,17 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
+      <% if user_signed_in? %>
       <a class="navbar-brand">  <%= link_to(image_tag("Geekometer LOGO1.jpg", :title => "Back to Welcome Page"), root_path(current_user)) %></a>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <p style="position: absolute; width: 85%; text-align: center; bottom: 0px; font-size: 25px; " ><%= link_to "START GEEKOMETER TEST", new_user_test_suit_path(current_user)%></p>
-          <% if user_signed_in? %>
-            <ul class="nav navbar-nav navbar-right" >
+              <ul class="nav navbar-nav navbar-right" >
               <li class="dropdown" style="position:absolute; right: 0px; bottom: 7px" >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%=current_user.username%>
                   <span class="caret"></span>
                 </a>
-              </li>
+
               <ul class="dropdown-menu">
                 <div class="dropdown-header">Signed in as <strong><%=current_user.username%></strong></div>
                 <li role="separator" class="divider"></li>
@@ -21,7 +21,8 @@
                 <li><%= link_to "Invite friend", new_user_invitation_path %></li>
                 <li><%= link_to "Sign out", destroy_user_session_path %></li>
               </ul>
-            </ul>
+              </li>
+              </ul>
           <% else %>
             <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
           <% end %>
