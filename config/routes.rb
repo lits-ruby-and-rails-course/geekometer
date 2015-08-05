@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'pages#welcome'
+      root 'users#show'
     end
     unauthenticated :user do
       root :to => 'devise/sessions#new',  as:  :unauthenticated_root
