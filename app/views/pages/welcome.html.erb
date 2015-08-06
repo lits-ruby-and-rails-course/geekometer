@@ -17,6 +17,11 @@
             <li role="presentation">
                 <p><%= link_to "Pass the Test!", new_user_test_suit_path(current_user) %></p>
             </li>
+            <li role="presentation"><p><%= submit_tag "Complete Test", class: 'btn btn-primary' %></p>
+            </li>
+            Question.all.each(&:approve!)
+
+
           </hr>
   	  	</ul>
   	  </div>

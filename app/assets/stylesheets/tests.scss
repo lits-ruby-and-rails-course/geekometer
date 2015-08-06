@@ -80,7 +80,7 @@
 }
 
 .complete_bottom {
-  position: fixed; top: 600px; 
+  position: fixed; top: 4 00px; 
 }
 
 @media screen and (max-width: 750px) {
@@ -103,4 +103,9 @@
   .complete_bottom {
   position: relative; top: 100%; right: -70%;
   }
+}
+
+
+.green {
+  color: green;
 }

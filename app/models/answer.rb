@@ -13,4 +13,5 @@
 class Answer < ActiveRecord::Base
 
   belongs_to :question
+  has_many :test_suit_answers, dependent: :destroy
 end
