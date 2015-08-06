@@ -16,7 +16,7 @@
                 <div class="dropdown-header">Signed in as <strong><%=current_user.username%></strong></div>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Profile", user_path(current_user) %></li>
-                <li><a href="#">Your geekorating</a></li>
+                <li><%= link_to "Your geekorating", user_test_suits_path(current_user) %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Invite friend", new_user_invitation_path %></li>
                 <li><%= link_to "Sign out", destroy_user_session_path %></li>
