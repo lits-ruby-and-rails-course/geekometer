@@ -1,5 +1,14 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class='col-md-12'>
+    <ul class="nav nav-pills">
+      <li><%= link_to "Edit profile", edit_user_path(current_user), class: 'btn'%></li>
+      <li><%= link_to "Admin Panel", admin_root_path, class: 'btn' if current_user.admin?%></li>
+      <li><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-primary'%></li>
+      <li><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></li>
+    </ul>
+    <hr/>
+  </div>
+  <div class="col-md-4 br">
     <font size="6"><%=current_user.username%></font>
     <br>
     <%=
@@ -11,42 +20,15 @@
     %>
   </div>
   <div class="col-md-6">
-    <hr style="height:10pt; visibility:hidden;"/>
-  </div>
-  <div class="col-md-2">
-    <%= link_to "Edit profile", edit_user_path(current_user), class: "btn btn-default"%>
-    <br>
-    <br>
-    <%=
-      if current_user.admin?
-        link_to "Admin Panel", admin_root_path, class: "btn btn-default"
-      end
-    %>
-    <hr style="height:10pt; visibility:hidden;"/>
-  </div>
-  <br>
-  <div class="col-md-3">
-    <font size="5">Current geekness: </font>
-    <%= link_to "Your geekorating", user_test_suits_path(current_user), class: "btn btn-default"%>
-  </div>
-  <div class="col-md-5">
-    <hr style="height:50pt; visibility:hidden;"/>
-  </div>
-  <div class ="col-md-3"></div>
-  <div class="col-md-5">
-    <%= link_to "Create new question", new_question_path, class: "btn btn-default btn-lg"%>
-  </div>
-<div class="col-md-5">
-  <hr style="height:10pt; visibility:hidden;"/>
-  </div>
-  <div class="col-md-6"><font size="5">Skills: </font>
-    <div class="skills">
-      <ul class="list-unstyled">
-      <li><%  current_user.topics.each do |topic| %>
-      <span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%>
-      </li>
-      </ul>
-      <% end %>
+    <div class="col-md-6"><font size="5">Skills: </font>
+      <div class="skills">
+        <ul class="list-unstyled">
+        <li><%  current_user.topics.each do |topic| %>
+        <span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%>
+        </li>
+        </ul>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
