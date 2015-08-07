@@ -1,34 +1,37 @@
-<div class="row">
-  <div class='col-md-12'>
-    <ul class="nav nav-pills">
-      <li><%= link_to "Edit profile", edit_user_path(current_user), class: 'btn'%></li>
-      <li><%= link_to "Admin Panel", admin_root_path, class: 'btn' if current_user.admin?%></li>
-      <li><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-primary'%></li>
-      <li><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></li>
-    </ul>
-    <hr/>
-  </div>
-  <div class="col-md-4 br">
-    <font size="6"><%=current_user.username%></font>
-    <br>
-    <%=
-      if current_user.avatar.url.nil?
-        image_tag(current_user.avatar.default_url)
-      else
-        image_tag(current_user.avatar.url)
-      end
-    %>
-  </div>
-  <div class="col-md-6">
-    <div class="col-md-6"><font size="5">Skills: </font>
-      <div class="skills">
-        <ul class="list-unstyled">
-        <li><%  current_user.topics.each do |topic| %>
-        <span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%>
-        </li>
+<div class="container">
+    <div class="row">
+      <div class='col-md-12 row'>
+        <ul class="nav nav-pills pull-right">
+          <li><%= link_to "Edit profile", edit_user_path(current_user), class: 'btn btn-primary'%></li>
+          <li><%= link_to "Admin Panel", admin_root_path, class: 'btn btn-info' if current_user.admin?%></li>
+          <li><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-info'%></li>
+          <li><%= link_to "Create new topic", new_topic_path(current_user), class: 'btn btn-info' if current_user.admin?%></li>
+          <li><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></li>
         </ul>
-        <% end %>
+        <hr/>
+      </div>
+      <div class="col-md-4 br">
+        <font size="6"><%=current_user.username%></font>
+        <br>
+        <%=
+          if current_user.avatar.url.nil?
+            image_tag(current_user.avatar.default_url)
+          else
+            image_tag(current_user.avatar.url)
+          end
+        %>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-6"><font size="5">Skills: </font>
+          <div class="skills">
+            <ul class="list-unstyled">
+            <li><%=  current_user.topics.each do |topic| %>
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%>
+            </li>
+            </ul>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
