@@ -1,4 +1,13 @@
 <div class="container">
+  <div class='col-md-12 row'>
+    <ul class="nav nav-pills pull-right">
+      <li><%= link_to "Edit profile", edit_user_path(current_user), class: 'btn btn-info'%></li>
+      <li><%= link_to "Admin Panel", admin_root_path, class: 'btn btn-info' if current_user.admin?%></li>
+      <li><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-info'%></li>
+      <li><%= link_to "Create new topic", new_topic_path(current_user), class: 'btn btn-info' if current_user.admin?%></li>
+      <li><%= link_to "Create new question", new_question_path, class: 'btn btn-primary'%></li>
+    </ul>
+    <hr/>
   <div class="col-sm-6 col-sm-offset-3">
     <h2 class="center-text">Create Question!</h2>
 

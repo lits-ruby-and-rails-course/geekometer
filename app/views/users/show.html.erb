@@ -12,7 +12,7 @@
       </div>
       <div class="col-md-4 br">
         <font size="6"><%=current_user.username%></font>
-        <br>
+        <div class="thumbnail">
         <%=
           if current_user.avatar.url.nil?
             image_tag(current_user.avatar.default_url)
@@ -20,6 +20,7 @@
             image_tag(current_user.avatar.url)
           end
         %>
+        </div>
       </div>
       <div class="col-md-6">
         <div class="col-md-6"><font size="5">Skills: </font>
