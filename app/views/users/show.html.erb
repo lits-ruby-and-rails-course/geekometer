@@ -1,14 +1,15 @@
 <div class="container">
     <div class="row">
+      <% if @user == current_user %>
       <div class='col-md-12 row'>
         <div class="btn-group pull-right">
           <a><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></a>
           <a><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-info'%></a>
-          <a><%= link_to "Edit profile", edit_user_path(current_user), class: 'btn btn-primary'%></a>
         </div>
         <hr/>
       </div>
-      <% if current_user.admin?%>
+      <% end %>
+      <% if @user == current_user && current_user.admin? %>
         <div class='col-md-12 row'>
           <div class="btn-group pull-right">
             <a><%= link_to "Create new topic", new_topic_path(current_user), class: 'btn btn-info'%></a>
@@ -18,22 +19,16 @@
         </div>
       <% end %>
       <div class="col-md-4 br">
-        <font size="6"><%=current_user.username%></font>
+        <font size="6"><%= @user.username || "&lt; Unt1tl3d User &gt;".html_safe %></font> <%= link_to "Edit", edit_user_path(current_user) if @user == current_user %>
         <div class="thumbnail">
-        <%=
-          if current_user.avatar.url.nil?
-            image_tag(current_user.avatar.default_url)
-          else
-            image_tag(current_user.avatar.url)
-          end
-        %>
+          <%= user_avatar_tag(@user) %>
         </div>
       </div>
       <div class="col-md-6">
         <div class="col-md-6"><font size="5">Skills: </font> <%= link_to "Edit", user_skills_path(current_user) if @user == current_user %>
           <div class="skills">
             <ul class="list-unstyled">
-            <%  current_user.topics.each do |topic| %>
+            <%  @user.topics.each do |topic| %>
               <li><span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%></li>
             <% end %>
             </ul>
