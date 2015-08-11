@@ -34,16 +34,6 @@
             </p>
          </div>
         <div class="col-md-5">
-        <ul class="pull-left">
-            <h3>Choose your skills for tests </h3>
-        </ul>
-        <div class='btn'>
-          <div class="skills">
-            <% Topic.all.each do |topic| %>
-                <label><input type="checkbox" value="<%= topic.id%>"><%= topic.name%></label>
-            <% end %>
-          </div>
-        </div>
           <div class="col-sm-6 col-sm-offset-2">
 
               <div class="actions">
