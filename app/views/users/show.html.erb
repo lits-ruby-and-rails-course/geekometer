@@ -1,15 +1,22 @@
 <div class="container">
     <div class="row">
       <div class='col-md-12 row'>
-        <ul class="nav nav-pills pull-right">
-          <li><%= link_to "Edit profile", edit_user_path(current_user), class: 'btn btn-primary'%></li>
-          <li><%= link_to "Admin Panel", admin_root_path, class: 'btn btn-info' if current_user.admin?%></li>
-          <li><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-info'%></li>
-          <li><%= link_to "Create new topic", new_topic_path(current_user), class: 'btn btn-info' if current_user.admin?%></li>
-          <li><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></li>
-        </ul>
+        <div class="btn-group pull-right">     
+          <a><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></a>
+          <a><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-info'%></a>          
+          <a><%= link_to "Edit profile", edit_user_path(current_user), class: 'btn btn-primary'%></a>
+        </div>
         <hr/>
       </div>
+      <% if current_user.admin?%>
+        <div class='col-md-12 row'>
+          <div class="btn-group pull-right">
+            <a><%= link_to "Create new topic", new_topic_path(current_user), class: 'btn btn-info'%></a>
+            <a><%= link_to "Admin Panel", admin_root_path, class: 'btn btn-primary'%></a>
+         </div>
+         <hr/>
+        </div>
+      <% end %>
       <div class="col-md-4 br">
         <font size="6"><%=current_user.username%></font>
         <div class="thumbnail">
