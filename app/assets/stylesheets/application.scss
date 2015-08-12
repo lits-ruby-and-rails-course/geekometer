@@ -9,6 +9,10 @@
 @import "login";
 @import "question";
 @import "pages";
-@import "profile";
 @import "invitations";
 @import "tests";
+@import "header";
+
+.br {
+  border-right: 1px solid #e7e7e7;
+}

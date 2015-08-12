@@ -1,34 +1,46 @@
-<div class="tabbed">
-  <% questions = @test_suit.questions %>
-  <% questions.each_with_index do |question, i| %>
-      <% element_id = "tab-nav-#{i+1}" %>
-      <input type="radio" name="tabs" id="<%= element_id %>" <% if i==0 %>checked<%end%>>
-      <label class="btn btn-default" for="<%= element_id %>">Question <%= i + 1 %></label>
-  <% end %>
-  <%= form_tag  new_user_test_suit_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
-      <br>
-
-      <p class="complete_bottom" ><%= submit_tag "Complete Test", class: 'btn btn-primary' %></p>
-
-      <hr>
+<div class="container">
+    <div class='col-md-12 row'>
+      <ul class="nav nav-pills pull-right">
+        <li><%= link_to "Edit profile", edit_user_path(current_user), class: 'btn btn-info'%></li>
+        <li><%= link_to "Admin Panel", admin_root_path, class: 'btn btn-info' if current_user.admin?%></li>
+        <li><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-primary'%></li>
+        <li><%= link_to "Create new topic", new_topic_path(current_user), class: 'btn btn-info' if current_user.admin?%></li>
+        <li><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></li>
+      </ul>
+      <hr/>
+    </div>
+    <div class="tabbed">
+      <% questions = @test_suit.questions %>
       <% questions.each_with_index do |question, i| %>
-          <div>
-            <h2>Question <%= i + 1 %></h2>
-            <% if question.answers.where(answer_valid: true).count > 1 %>
-                <h6>(Has mulltiple correct answers)</h6>
-            <% end %>
-            <ul class="answer_left" float="right" list-style-type="none">
-              <% question.answers.each_with_index do |answer, j| %>
-                  <% element_id = "tab_question_#{question.id}_#{answer.id}" %>
-                  <li>
-                    <input type="checkbox" name="test_suit_answers[<%= question.id %>]" id="<%= element_id %>" value="<%= answer.id %>">
-                    <label for="<%= element_id %>"><%= answer.solution %></label></li>
-              <% end %>
-            </ul>
-            <p>
-              <%= question.condition %>
-            </p>
-          </div>
+          <% element_id = "tab-nav-#{i+1}" %>
+          <input type="radio" name="tabs" id="<%= element_id %>" <% if i==0 %>checked<%end%>>
+          <label class="btn btn-default" for="<%= element_id %>">Question <%= i + 1 %></label>
       <% end %>
-  <% end %>
+      <%= form_tag  user_test_suit_complete_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
+          <br>
+
+          <p class="complete_bottom" ><%= submit_tag "Complete Test", class: 'btn btn-primary' %></p>
+
+          <hr>
+          <% questions.each_with_index do |question, i| %>
+              <div>
+                <h2>Question <%= i + 1 %></h2>
+                <% if question.answers.where(answer_valid: true).count > 1 %>
+                    <h6>(Has mulltiple correct answers)</h6>
+                <% end %>
+                <ul class="answer_left" float="right" list-style-type="none">
+                  <% question.answers.each_with_index do |answer, j| %>
+                      <% element_id = "tab_question_#{question.id}_#{answer.id}" %>
+                      <li>
+                        <input type="checkbox" name="test_suit_answers[<%= question.id %>]" id="<%= element_id %>" value="<%= answer.id %>">
+                        <label for="<%= element_id %>"><%= answer.solution %></label></li>
+                  <% end %>
+                </ul>
+                <p>
+                  <%= question.condition %>
+                </p>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
 </div>

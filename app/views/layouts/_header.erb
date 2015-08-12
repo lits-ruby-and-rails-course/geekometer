@@ -1,33 +1,35 @@
 <nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header"
-      <% if user_signed_in? %>
-      <a class="navbar-brand">  <%= link_to(image_tag("Geekometer LOGO1.jpg", :title => "Back to Welcome Page"), root_path(current_user)) %></a>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <h3 class="text-center"  ><%= link_to "START GEEKOMETER TEST", new_user_test_suit_path(current_user)%></h3>
-              <ul class="nav navbar-nav navbar-right" >
-              <li class="dropdown" style="position:absolute; right: 0px; bottom: 7px" >
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <%=current_user.username%>
-                  <span class="caret"></span>
-                </a>
-
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <li class="pull-left"><a class="navbar-brand"><%= link_to(image_tag("LOGO.png", :title => "Back to Welcome Page"), root_path(current_user))%></a></li>
+          <% if user_signed_in? %>
+            <li class="nav navbar-btn"><%= link_to "TAKE TEST", new_user_test_suit_path(current_user), class: 'btn btn-danger', :id => "take_test"%></li>
+            <li class="pull-right">
+              <a href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <%= user_avatar_tag(current_user, :small)%>
+                  <%=current_user.username%>
+                <span class="caret"></span>
+              </a>
               <ul class="dropdown-menu">
-                <div class="dropdown-header">Signed in as <strong><%=current_user.username%></strong></div>
+                <li class="dropdown-header">Signed in as <strong><%=current_user.username%></strong></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Profile", user_path(current_user) %></li>
-                <li><a href="#">Your geekorating</a></li>
+                <li><%= link_to "Your geekorating", user_test_suits_path(current_user) %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Invite friend", new_user_invitation_path %></li>
                 <li><%= link_to "Sign out", destroy_user_session_path %></li>
               </ul>
-              </li>
-              </ul>
+            </li>
           <% else %>
             <%= link_to "Login", new_user_session_path, class: "navbar-brand pull-right" %>
           <% end %>
-        </div>
-      </div>
+      </ul>
     </div>
   </div>
 </nav>

@@ -1,0 +1,41 @@
+.navbar-nav{
+	width: 100%;
+	text-align: center;
+	> li {
+      float: none;
+      display: inline-block;
+      vertical-align:middle;
+    }
+}
+
+.navbar-btn{
+	margin-top: 15px;
+}
+
+.navbar-brand{
+	margin-top: 15px;
+}
+
+#take_test:link {
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#take_test:visited {
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#take_test:hover {
+	color: black;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#take_test:active {
+	color: black;
+	font-size: 25px;
+	font-weight: bold;
+}
