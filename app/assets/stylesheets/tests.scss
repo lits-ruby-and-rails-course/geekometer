@@ -79,8 +79,8 @@
   list-style-type: none;
 }
 
-.complete_bottom {
-  position: fixed; top: 350px; 
+.complete_button {
+  position: relative; bottom: -350px; left: 43%; right: 57%; 
 }
 
 @media screen and (max-width: 750px) {
@@ -100,7 +100,7 @@
     border-bottom: 2px solid #FF0404;
     padding-bottom: .5em;
   }
-  .complete_bottom {
+  .complete_button {
   position: relative; top: 100%; right: -70%;
   }
 }
