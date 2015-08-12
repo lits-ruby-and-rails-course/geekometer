@@ -2,18 +2,29 @@
   <div class="col-sm-6 col-sm-offset-3">
     <h2 class="center-text">Thank you for your question!</h2>
 <br />
-
         <div class="field form-group">
-          <p>Topic:</p>
+          <p>Topic:  <%= @question.topic.name %></p>
         </div>
 
         <div class="field form-group">
-          <p>Difficulty: </p>
+          <p>Difficulty:  <%= @question.difficulty %></p>
+        </div>
+
+        <div class="field form-group">
+          <p>Condition:  <%= @question.condition %></p>
+        </div>
+
+        <div class="field form-group">
+          <p>Answers: <ul>
+        <% @question.answers.each do |answer| %>
+          <li><%= answer.solution %> (<%= answer.answer_valid %>)</li>
+        <% end %>
+      </ul></p>
+        
         </div>
 
 
 
-        <%= link_to("Edit", :back, class: "btn btn-info") %>
+      <%= link_to("Edit", [:edit, @question], class: "btn btn-info") %>
   </div>
 </div>
-

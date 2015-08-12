@@ -25,6 +25,22 @@ class QuestionsController < ApplicationController
     @question.destroy
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to question_path(@question), notice: 'Question was successfully updated.'
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
   private
 
   def question_params
@@ -33,7 +49,5 @@ class QuestionsController < ApplicationController
             answers_attributes: [:id,:solution, :answer_valid, :_destroy])
   end
 
-  def show
-    @question = Question.find(params[:id])
-  end
+
 end
