@@ -1,0 +1,16 @@
+<div class="container">
+	<div class='col-md-12 row'>
+    <div class="btn-group pull-right">
+    	<a><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></a>
+      <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-info'%></a>
+    </div>
+    <hr/>
+  </div>
+	<div class='col-md-12 row'>
+		<ul class="list-unstyled">
+  		<% current_user.questions.each do |question| %>
+  			<li><%= question.condition%></li>
+  		<% end %>
+		</ul>
+	</div>
+</div>

@@ -18,12 +18,12 @@ Topic.create(name: 'Sports', description: 'Veniam dolores distinctio, nostrum qu
 Topic.create(name: 'film industry', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit!')
 
 # Creating dummy questions:
-Question.create(condition: 'Do fish get thirsty?', difficulty: '7', topic_id: '1')
-Question.create(condition: 'Do vampires get AIDS?', difficulty: '4', topic_id: '1')
-Question.create(condition: 'Where is Old Zealand?', difficulty: '1', topic_id: '1')
-Question.create(condition: 'Who killed the Dead Sea?', difficulty: '7', topic_id: '2')
-Question.create(condition: 'How many weeks are there in a light year?', difficulty: '4', topic_id: '2')
-Question.create(condition: 'How do you know when you\'ve run out of invisible ink?', difficulty: '1', topic_id: '5')
+Question.create(condition: 'Do fish get thirsty?', difficulty: '7', topic_id: '1', user_id: 1)
+Question.create(condition: 'Do vampires get AIDS?', difficulty: '4', topic_id: '1', user_id: 1)
+Question.create(condition: 'Where is Old Zealand?', difficulty: '1', topic_id: '1', user_id: 1)
+Question.create(condition: 'Who killed the Dead Sea?', difficulty: '7', topic_id: '2', user_id: 1)
+Question.create(condition: 'How many weeks are there in a light year?', difficulty: '4', topic_id: '2', user_id: 1)
+Question.create(condition: 'How do you know when you\'ve run out of invisible ink?', difficulty: '1', topic_id: '5', user_id: 1)
 
 # Creating dummy answers:
 

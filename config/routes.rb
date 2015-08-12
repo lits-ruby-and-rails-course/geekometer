@@ -18,8 +18,9 @@ Rails.application.routes.draw do
 
   get 'test' => 'pages#tests'
   get '/users/:id' => 'users#show'
+  get '/questions/show' => 'questions#show'
 
-  resources :questions, only: [:index, :new, :create]
+  resources :questions, only: [:index, :new, :create, :show]
   resources :topics, only: [:index, :show, :new, :create]
 
   resources :users, only: [:create, :edit, :new, :show, :testpage, :update] do

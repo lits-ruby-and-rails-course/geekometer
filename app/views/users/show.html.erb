@@ -4,6 +4,7 @@
       <div class='col-md-12 row'>
         <div class="btn-group pull-right">
           <a><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></a>
+          <a><%= link_to "My questions", questions_show_path, class: 'btn btn-info'%></a>
           <a><%= link_to "Your geekorating", user_test_suits_path(current_user), class: 'btn btn-info'%></a>
         </div>
         <hr/>

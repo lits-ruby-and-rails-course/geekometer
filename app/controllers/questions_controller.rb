@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.user = current_user
 
     if @question.save
       redirect_to root_path, notice: 'Question was successfully created.'
@@ -23,6 +24,10 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
+  end
+
+  def show
+
   end
 
   private
