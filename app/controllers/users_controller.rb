@@ -70,3 +70,4 @@ class UsersController < ApplicationController
      params[:User]
    end
 end
+
