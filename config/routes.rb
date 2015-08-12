@@ -24,8 +24,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :edit, :new, :show, :testpage, :update] do
     resources :test_suits do
-              post :complete
-      end
+      post :complete
+       member do
+           get 'test_me'
+       end
+    end
     resources :skills, only: [:index] do
       collection do
         patch :update
