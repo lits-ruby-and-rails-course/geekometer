@@ -11,13 +11,13 @@
         </div>
 
         <div class="field form-group">
-          <p>Condition:  <%= @question.condition %></p>
+          <p>Condition:  <%= markdown(@question.condition) %></p>
         </div>
 
         <div class="field form-group">
           <p>Answers: <ul>
         <% @question.answers.each do |answer| %>
-          <li><%= answer.solution %> (<%= answer.answer_valid %>)</li>
+          <li><%= markdown(answer.solution) %> (<%= answer.answer_valid %>)</li>
         <% end %>
       </ul></p>
         

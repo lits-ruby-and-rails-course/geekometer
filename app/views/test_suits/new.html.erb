@@ -26,18 +26,18 @@
               <div>
                 <h2>Question <%= i + 1 %></h2>
                 <% if question.answers.where(answer_valid: true).count > 1 %>
-                    <h6>(Has mulltiple correct answers)</h6>
+                    <h6>(Has multiple correct answers)</h6>
                 <% end %>
                 <ul class="answer_left" float="right" list-style-type="none">
                   <% question.answers.each_with_index do |answer, j| %>
                       <% element_id = "tab_question_#{question.id}_#{answer.id}" %>
                       <li>
                         <input type="checkbox" name="test_suit_answers[<%= question.id %>]" id="<%= element_id %>" value="<%= answer.id %>">
-                        <label for="<%= element_id %>"><%= answer.solution %></label></li>
+                        <label for="<%= element_id %>"><%= markdown(answer.solution) %></label></li>
                   <% end %>
                 </ul>
                 <p>
-                  <%= question.condition %>
+                  <%= markdown(question.condition) %>
                 </p>
               </div>
           <% end %>
