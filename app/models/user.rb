@@ -46,4 +46,6 @@ class User < ActiveRecord::Base
   has_many :test_suits
   has_many :questions
   has_and_belongs_to_many :topics
+  has_many :invitations_count
+
 end
