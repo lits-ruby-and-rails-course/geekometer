@@ -5,12 +5,9 @@
           <input type="radio" name="tabs" id="<%= element_id %>" <% if i==0 %>checked<%end%>>
           <label class="btn btn-default" for="<%= element_id %>">Question <%= i + 1 %></label>
       <% end %>
-      <%= form_tag  user_test_suit_complete_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
+       <%= form_tag  user_test_suit_complete_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
+           <p id="complete_button" ><%= submit_tag "Complete Test", class: 'btn btn-danger' %></p>
           <br>
-
-          <p class="complete_button" ><%= submit_tag "Complete Test", class: 'btn btn-primary' %></p>
-
-          <hr>
           <% questions.each_with_index do |question, i| %>
               <div>
                 <h2>Question <%= i + 1 %></h2>
@@ -32,3 +29,4 @@
           <% end %>
       <% end %>
     </div>
+
