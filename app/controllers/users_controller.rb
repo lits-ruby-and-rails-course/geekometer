@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
   before_action :authenticate_user!
-  before_action :set_user, only: [:new,  :show, :edit, :update, :destroy,:user_params]
+  before_action :set_user, only: [:new,  :show, :edit, :update, :destroy, :questions]
 
   # GET /users
     def index
@@ -52,6 +52,10 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
+
+  def questions
+    @questions = @user.questions
+  end
 #
   private
 #    # Use callbacks to share common setup or constraints between actions.
@@ -69,4 +73,3 @@ class UsersController < ApplicationController
      params[:User]
    end
 end
-

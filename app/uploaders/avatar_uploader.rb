@@ -1,67 +1,41 @@
 # encoding: utf-8
-
 class AvatarUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
-  # Include RMagick or MiniMagick support:
-
-  # include CarrierWave::MiniMagick
-
-
-  # Choose what kind of storage to use for this uploader:
-  # storage :file
-  #storage :fog
-
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-     "public/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-
-  end
-
+  DEFAULT_IMAGE_ID = 'default_xvbhqx'.freeze
 
   def cache_dir
     "#{Rails.root}/tmp/uploads"
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-    def default_url
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #     ActionController::Base.helpers.asset_path('default.png')
+  def default_url
+    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  end
 
-  # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-
-      "http://res.cloudinary.com/geekometer/image/upload/v1439445782/" + [version_name,"default_xvbhqx.png"].compact.join('_')
-    end
-
-  # Process files as they are uploaded:
-  #  process :scale => [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
-     process resize_to_fit: [400, 400]
+  process resize_to_fit: [400, 400]
+  cloudinary_transformation(fetch_format: :auto)
 
   # Create different versions of your uploaded files:
   version :medium do
-    process :resize_to_fit => [100, 100]
+    cloudinary_transformation(
+      crop: :fill,
+      width: 100,
+      height: 100,
+      gravity: :faces,
+      fetch_format: :auto,
+      default_image: DEFAULT_IMAGE_ID
+    )
   end
 
    version :small do
-     process :resize_to_fit => [50, 50]
+    cloudinary_transformation(
+      crop: :thumb,
+      width: 50,
+      height: 50,
+      gravity: :face,
+      radius: :max,
+      fetch_format: :auto,
+      default_image: DEFAULT_IMAGE_ID
+    )
   end
-
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
-
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
-
 end

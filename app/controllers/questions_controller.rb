@@ -7,11 +7,12 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    4.times { @question.answers.build }  
+    4.times { @question.answers.build }
   end
 
   def create
     @question = Question.new(question_params)
+    @question.user = current_user
 
     if @question.save
       redirect_to question_path(@question), notice: 'Question was successfully created.'
@@ -32,13 +33,23 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
 
+    if @question.user != current_user
+      redirect_to question_path(@question), notice: "You can only edit your own questions."
+    end
+
     if @question.update(question_params)
       redirect_to question_path(@question), notice: 'Question was successfully updated.'
+    else
+      redirect_to question_path(@question), notice: 'Failed to update question.'
     end
   end
 
   def edit
     @question = Question.find(params[:id])
+
+    if @question.user != current_user
+      redirect_to question_path(@question), notice: "You can only edit questions you've created."
+    end
   end
 
   private

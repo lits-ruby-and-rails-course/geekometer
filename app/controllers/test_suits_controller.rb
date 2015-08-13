@@ -16,11 +16,16 @@ class TestSuitsController < ApplicationController
   end
 
   def complete
-    test_suit = TestSuit.find(params[:test_suit_id])
-    test_suit.build_test_suit_answers(params[:test_suit_answers])
-    test_suit.complete!
-    test_suit.save!
-    redirect_to user_test_suit_path(test_suit.user, test_suit)
+    if params[:test_suit_answers]
+      test_suit = TestSuit.find(params[:test_suit_id])
+      test_suit.build_test_suit_answers(params[:test_suit_answers])
+      test_suit.complete!
+      test_suit.save!
+      redirect_to user_test_suit_path(test_suit.user, test_suit)
+    else
+      flash[:danger] = 'Answers should be present'
+      redirect_to :back
+    end
   end
 
   def test_me
