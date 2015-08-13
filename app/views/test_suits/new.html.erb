@@ -1,3 +1,4 @@
+
     <div class="tabbed">
       <% questions = @test_suit.questions %>
       <% questions.each_with_index do |question, i| %>
@@ -6,7 +7,7 @@
           <label class="btn btn-default" for="<%= element_id %>">Question <%= i + 1 %></label>
       <% end %>
        <%= form_tag  user_test_suit_complete_path(test_suit_id: @test_suit.id), method: 'post', class: "tabs" do %>
-           <p id="complete_button" ><%= submit_tag "Complete Test", class: 'btn btn-danger' %></p>
+                <p id="complete_button" ><%= submit_tag "Complete Test", class: 'btn btn-danger' %></p>
           <br>
           <% questions.each_with_index do |question, i| %>
               <div>
