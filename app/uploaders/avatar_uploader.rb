@@ -30,9 +30,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #     ActionController::Base.helpers.asset_path('default.png')
 
-  # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  "/images/fallback/" + [version_name, "default.png"].compact.join('_')
 
-      "http://res.cloudinary.com/geekometer/image/upload/v1439445782/" + [version_name,"default_xvbhqx.png"].compact.join('_')
+      # "http://res.cloudinary.com/geekometer/image/upload/v1439445782/" + [version_name,"default_xvbhqx.png"].compact.join('_')
     end
 
   # Process files as they are uploaded:
