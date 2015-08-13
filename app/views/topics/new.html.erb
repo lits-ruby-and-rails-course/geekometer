@@ -11,7 +11,7 @@
   <div class="col-sm-6 col-sm-offset-3">
     <h2 class="center-text">Create Topic!</h2>
 
-    <%= form_for(@topic) do |f| %>
+    <%= form_for @topic,  :html => {:multipart => true}  do |f| %>
       <div class="field form-group">
         <%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
@@ -21,7 +21,8 @@
         <%= f.label :description %><br />
         <%= f.text_area :description, class: "form-control" %>
       </div>
-
+        <%= "Upload logo" %>
+        <%= f.file_field :logo %>
       <div class="actions">
         <%= f.submit "Create!", class: "btn btn-primary" %>
         <%= link_to("Back", root_path , class: "btn btn-info") %>
