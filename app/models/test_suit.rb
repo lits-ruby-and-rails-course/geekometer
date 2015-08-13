@@ -30,7 +30,11 @@ class TestSuit < ActiveRecord::Base
     end
   end
 
-  def statistics
-    "#{test_suit_answers.correct.count} / #{questions.correct.count}"
+  def stat_test_correct_count
+    "#{test_suit_answers.correct.count}"
+    end
+
+  def stat_question_correct_count
+    "#{questions.correct.count}"
   end
 end
