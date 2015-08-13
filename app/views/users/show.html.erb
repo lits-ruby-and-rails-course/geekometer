@@ -23,8 +23,8 @@
         <div class="col-md-6"><font size="5">Skills: </font> <%= link_to "Edit", user_skills_path(current_user), class: "btn btn-success" if @user == current_user %>
           <div class="skills">
             <ul class="list-unstyled">
-            <%  @user.topics.each do |topic| %>
-              <li><span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%></li>
+            <%  current_user.topics.each do |topic| %>
+              <li><span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%><%=image_tag topic.logo.url(:medium)  %></li>
             <% end %>
             </ul>
           </div>
