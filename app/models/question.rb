@@ -13,7 +13,7 @@
 #
 
 class Question < ActiveRecord::Base
-  validates :condition, presence: true, length: { maximum: 255 }
+  validates :condition, presence: true, length: { maximum: 1024 }
   validates_presence_of :topic_id
   def status_enum
     [['Approved', 1],['Pending',0],['Rejected',2]]
