@@ -1,13 +1,15 @@
 # encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
+  include Cloudinary::CarrierWave
 
   # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+
+  # include CarrierWave::MiniMagick
+
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   #storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -28,7 +30,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #     ActionController::Base.helpers.asset_path('default.png')
 
-   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+
+      "http://res.cloudinary.com/geekometer/image/upload/v1439445782/" + [version_name,"default_xvbhqx.png"].compact.join('_')
     end
 
   # Process files as they are uploaded:
