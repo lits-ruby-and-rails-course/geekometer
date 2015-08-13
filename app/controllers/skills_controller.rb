@@ -7,7 +7,7 @@ class SkillsController < ApplicationController
 
   def update
     if user == current_user
-      user.topics = params.require(:skills).map {|x| Topic.find(x)}
+      user.topics = (params[:skills] || []).map {|x| Topic.find(x)}
     end
     redirect_to user_path(user.id)
   end
