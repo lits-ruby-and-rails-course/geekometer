@@ -1,16 +1,30 @@
 <div class="container">
-	<div class='col-md-12 row'>
-    <div class="btn-group pull-right">
-    	<a><%= link_to "Create new question", new_question_path, class: 'btn btn-info'%></a>
-      <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-info'%></a>
-    </div>
-    <hr/>
+  <div class="col-sm-6 col-sm-offset-3">
+    <h2 class="center-text">Thank you for your question!</h2>
+<br />
+        <div class="field form-group">
+          <p>Topic:  <%= @question.topic.name %></p>
+        </div>
+
+        <div class="field form-group">
+          <p>Difficulty:  <%= @question.difficulty %></p>
+        </div>
+
+        <div class="field form-group">
+          <p>Condition:  <%= markdown(@question.condition) %></p>
+        </div>
+
+        <div class="field form-group">
+          <p>Answers: <ul>
+        <% @question.answers.each do |answer| %>
+          <li><%= markdown(answer.solution) %> (<%= answer.answer_valid %>)</li>
+        <% end %>
+      </ul></p>
+        
+        </div>
+
+
+
+      <%= link_to("Edit", [:edit, @question], class: "btn btn-info") %>
   </div>
-	<div class='col-md-12 row'>
-		<ul class="list-unstyled">
-  		<% current_user.questions.each do |question| %>
-  			<li><%= question.condition%></li>
-  		<% end %>
-		</ul>
-	</div>
 </div>

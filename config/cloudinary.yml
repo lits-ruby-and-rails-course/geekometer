@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: geekometer
+  api_key: '497145248814839'
+  api_secret: RB3RtMxMWrOglCGVp_f1NIcP-Zo
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: geekometer
+  api_key: '497145248814839'
+  api_secret: RB3RtMxMWrOglCGVp_f1NIcP-Zo
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: geekometer
+  api_key: '497145248814839'
+  api_secret: RB3RtMxMWrOglCGVp_f1NIcP-Zo
+  enhance_image_tag: true
+  static_image_support: false

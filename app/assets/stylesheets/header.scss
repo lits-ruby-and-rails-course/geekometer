@@ -1,5 +1,9 @@
+.container-fluid{
+	background-image:  url(image_path('congruent_pentagon.png'));
+}
+
 .navbar-nav{
-	background: url('/assets/congruent_pentagon.png');
+	
 	width: 100%;
 	text-align: center;
 	> li {

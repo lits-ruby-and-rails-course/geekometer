@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+
 
   before_action :authenticate_user!
   before_action :set_user, only: [:new,  :show, :edit, :update, :destroy,:user_params]
@@ -70,3 +69,4 @@ class UsersController < ApplicationController
      params[:User]
    end
 end
+

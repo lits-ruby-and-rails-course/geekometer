@@ -9,35 +9,7 @@
   <div class="col-sm-6 col-sm-offset-3">
     <h2 class="center-text">Create Question!</h2>
 
-    <%= form_for @question do |f| %>
-      <div class="field form-group">
-        <%= f.label :topic_id %><br />
-        <div class="dropdown">
-            <%= f.collection_select :topic_id, Topic.all, :id, :name,
-  {prompt: "Select Topic..."}, {class: 'btn btn-default dropdown-toggle'} %>
-        </div>
-      </div>
-
-      <div class="field form-group">
-        <%= f.label :difficulty %><br />
-        <%= f.number_field :difficulty, class: "form-control", within: 1..7 %>
-      </div>
-
-      <div class="field form-group">
-        <%= f.label :condition %><br />
-        <%= f.text_area :condition, rows: "10", class: "form-control" %>
-      </div>
-      <hr>
-    <%= f.fields_for :answers do |builder| %>
-      <%= render partial: 'answer_fields', locals: {f: builder} %>
-    <% end %>
-        <%= link_to_add_fields "Add Answer", f, :answers  %>
-
-        <div class="actions">
-        <%= f.submit "Create!", class: "btn btn-primary" %>
-        <%= link_to("Back", :back, class: "btn btn-info") %>
-      </div>
-    <% end %>
+      <%= render partial: 'form' %>
 
     </div>
   </div>

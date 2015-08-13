@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    4.times { @question.answers.build }
+    4.times { @question.answers.build }  
   end
 
   def create
@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     @question.user = current_user
 
     if @question.save
-      redirect_to root_path, notice: 'Question was successfully created.'
+      redirect_to question_path(@question), notice: 'Question was successfully created.'
     else
       flash.now[:danger] = 'Required fields should be present'
       render :new
@@ -27,7 +27,19 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find(params[:id])
+  end
 
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to question_path(@question), notice: 'Question was successfully updated.'
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
   end
 
   private
@@ -37,4 +49,6 @@ class QuestionsController < ApplicationController
     .permit(:condition, :difficulty, :topic_id, \
             answers_attributes: [:id,:solution, :answer_valid, :_destroy])
   end
+
+
 end

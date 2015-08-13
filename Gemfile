@@ -15,13 +15,14 @@ gem 'devise_invitable', '~> 1.4.2'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
-gem 'rmagick'
-gem 'mini_magick'
 gem 'carrierwave'
 gem 'acts-as-taggable-on', '~> 3.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -33,6 +34,7 @@ gem 'jquery-rails'
 
 gem 'morrisjs-rails'
 gem 'raphael-rails'
+gem 'cloudinary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,4 +49,5 @@ group :development, :test do
   gem "binding_of_caller",  '0.7.2'
 end
 
+gem 'puma'
 gem 'newrelic_rpm'
