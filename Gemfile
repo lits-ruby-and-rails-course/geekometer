@@ -49,4 +49,5 @@ group :development, :test do
   gem "binding_of_caller",  '0.7.2'
 end
 
+gem 'puma'
 gem 'newrelic_rpm'
