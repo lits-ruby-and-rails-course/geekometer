@@ -14,5 +14,6 @@ class Topic < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
   validates :name, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 255 }
+  has_and_belongs_to_many :users
   has_many :questions
 end
