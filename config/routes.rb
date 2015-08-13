@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'test' => 'pages#tests'
   get '/users/:id' => 'users#show'
+  get '/questions/show' => 'questions#show'
 
   resources :questions
   resources :topics, only: [:index, :show, :new, :create]

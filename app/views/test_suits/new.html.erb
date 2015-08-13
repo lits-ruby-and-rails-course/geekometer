@@ -1,3 +1,11 @@
+<div class="container">
+    <div class='col-md-12 row'>
+      <div class="btn-group pull-right">
+        <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-info'%></a>
+      </div>
+      <hr/>
+    </div>
+
     <div class="tabbed">
       <% questions = @test_suit.questions %>
       <% questions.each_with_index do |question, i| %>
