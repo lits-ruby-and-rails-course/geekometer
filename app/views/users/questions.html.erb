@@ -1,13 +1,35 @@
-<ul>
-  <% @questions.each do |question| %>
-    <li><% if question.approved %>APPROVED <% end %><strong><%= question.condition %></strong>
-      <ul>
-        <% question.answers.each do |answer| %>
-          <li><%= answer.solution %> (<%= answer.answer_valid %>)</li>
-        <% end %>
-      </ul>
-
-      <%= link_to "Edit", edit_question_path(question) if @user == current_user %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class='col-md-12 row'>
+    <div class="btn-group pull-right">
+      <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-primary'%></a>
+    </div>
+    <hr/>
+  </div>
+  <h3 style= "font-weight: bold">Your questions</h3>
+  <br>
+  <div class='col-md-12 row'>
+    <ol>
+      <% @questions.each do |question| %>
+        <div class = "questions_show">
+          <li>
+            <strong><%=question.condition %></strong>
+            <%= link_to "Edit", edit_question_path(question) if @user == current_user %>
+          </li>
+        </div>
+        <div class="pull-right">
+          <% if question.approved %>
+              <span class= "glyphicon glyphicon-thumbs-up" aria-hidden="true" ></span> - Approved
+          <% else %>
+              <span class= "glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> - Not approved
+          <% end %>
+        </div>
+          <ul style="list-style-type:disc">
+            <% question.answers.each do |answer| %>
+              <li><%= answer.solution %> (<%= answer.answer_valid %>)</li>
+            <% end %>
+          </ul>
+      <hr/>
+      <% end %>
+    </ol>
+  </div>
+</div>
