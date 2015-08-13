@@ -1,16 +1,56 @@
 <div class='container'>
-  <h3>Your score is: <code><%= @test_suit.statistics %></code></h3>
-    <% @test_suit.questions.each_with_index do |question, index|%>
-    <div class='row'>
-    <div class='col-md-12'>
-      <h4> <%= [index + 1, question.condition].join(') ') %></h4>
-        <div class='col-md-10 col-md-offset-1'>
-          <% question.answers.each_with_index do |answer, index|%>
+  <div class='col-md-12 row'>
+    <div class="btn-group pull-right">
+      <a><%= link_to "Back to statistic", user_test_suits_path(current_user), class: 'btn btn-info'%></a>
+      <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-info'%></a>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <hr/>
+    <h3>Your score is:
+      <code>
+          <%= @test_suit.stat_test_correct_count%> / <%= @test_suit.stat_question_correct_count%>
+      </code>
+    </h3>
+      <% @test_suit.questions.each_with_index do |question, index|%>
+      <div class='row'>
+        <div class='col-md-12'>
+          <h4> <%= [index + 1, question.condition].join(') ') %></h4>
+          <div class='col-md-10 col-md-offset-1'>
+            <% question.answers.each_with_index do |answer, index|%>
             <p class="<%= answer.answer_valid && 'green' %>"><%= [index + 1, answer.solution].join(') ') %></p>
-           <% end %> 
+            <% end %>
+          </div>
         </div>
-    </div>
-    </div>
+      </div>
     <hr>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <br>
+    <br>
+    <div id=graph></div>
+    <script>
+        Morris.Donut({
+            element: 'graph',
+            data: [
+                {
+                    value: <%= 100 * @test_suit.stat_test_correct_count.to_i / @test_suit.stat_question_correct_count.to_i %>,
+                    label: 'Correct'
+                },{
+                    value: <%= 100 - 100 * @test_suit.stat_test_correct_count.to_i / @test_suit.stat_question_correct_count.to_i %>,
+                    label: 'Incorrect'
+                }
+            ],
+            backgroundColor: '#ccc',
+            colors: [
+                '#0BA462',
+                '#d9534f'
+            ],
+            formatter: function (x) {
+                return x + "%"
+            }
+        });
+    </script>
+  </div>
 </div>

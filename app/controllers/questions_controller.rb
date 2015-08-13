@@ -31,11 +31,11 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    @question = Question.find(params[:id])
+
     if @question.user != current_user
       redirect_to question_path(@question), notice: "You can only edit your own questions."
     end
-
-    @question = Question.find(params[:id])
 
     if @question.update(question_params)
       redirect_to question_path(@question), notice: 'Question was successfully updated.'
