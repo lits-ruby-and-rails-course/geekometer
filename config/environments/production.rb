@@ -77,6 +77,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_controller.default_url_options = {
+    host: ENV['ROOT_HOST'] || 'geekometer.herokuapp.com'
+  }
+
   config.action_mailer.smtp_settings = {
     :address => "smtp.mandrillapp.com",
     :port => 587,
@@ -85,7 +89,9 @@ Rails.application.configure do
     :user_name => 'geekometer.development@gmail.com',
     :password  => ENV['SMTP_PASSWORD'] || 'IJ4-RJzgZJdK0I48iOQrnA'
   }
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = {
+    host: ENV['ROOT_HOST'] || 'geekometer.herokuapp.com', protocol: 'https://'
+  }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
