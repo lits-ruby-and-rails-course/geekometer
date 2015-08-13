@@ -1,7 +1,13 @@
 <div class='container row'>
   <div class='col-md-12 row'>
-      <div class="btn-group pull-right">
-        <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-primary'%></a>
+    <ul class="nav nav-pills pull-right">
+      <a><%= link_to "Back to Profile", user_path(current_user), class: "btn btn-info"%></a>
+    </ul>
+    <hr/>
+  </div>
+    <% if  @test_suits.empty? %>
+      <div class="col-md-12">
+        <strong>You did not complete any tests yet!!!</strong>
       </div>
       <hr/>
   </div>
