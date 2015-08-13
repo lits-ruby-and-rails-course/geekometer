@@ -16,14 +16,13 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  get 'test' => 'pages#tests'
-  get '/users/:id' => 'users#show'
-  get '/questions/show' => 'questions#show'
-
   resources :questions
   resources :topics, only: [:index, :show, :new, :create]
 
   resources :users, only: [:create, :edit, :new, :show, :testpage, :update] do
+    member do
+      get :questions
+    end
     resources :test_suits do
       post :complete
        member do

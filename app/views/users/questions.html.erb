@@ -1,0 +1,13 @@
+<ul>
+  <% @questions.each do |question| %>
+    <li><% if question.approved %>APPROVED <% end %><strong><%= question.condition %></strong>
+      <ul>
+        <% question.answers.each do |answer| %>
+          <li><%= answer.solution %> (<%= answer.answer_valid %>)</li>
+        <% end %>
+      </ul>
+
+      <%= link_to "Edit", edit_question_path(question) if @user == current_user %>
+    </li>
+  <% end %>
+</ul>

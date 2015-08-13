@@ -45,11 +45,11 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:id])
+
     if @question.user != current_user
       redirect_to question_path(@question), notice: "You can only edit questions you've created."
     end
-
-    @question = Question.find(params[:id])
   end
 
   private
