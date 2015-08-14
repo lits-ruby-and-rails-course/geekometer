@@ -1,6 +1,9 @@
 <div class="container">
   <div class='col-md-12 row'>
     <div class="btn-group pull-right">
+      <% if @question.user == current_user %>
+          <%= link_to("Edit", [:edit, @question], class: "btn btn-info") %>
+      <% end %>
       <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-primary'%></a>
     </div>
     <hr/>
@@ -27,7 +30,5 @@
         <% end %>
       </ul></p>
         </div>
-
-      <%= link_to("Edit", [:edit, @question], class: "btn btn-info") %>
   </div>
 </div>
