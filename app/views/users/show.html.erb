@@ -19,10 +19,14 @@
       </div>
       <div class="col-md-6">
         <div class="col-md-6"><font size="5">Skills: </font> <%= link_to "Edit", user_skills_path(current_user), class: "btn btn-success" if @user == current_user %>
+        <% if @user.topics.count == 0 %>
+            <p>You have not chosen any skills yet</p>
+        <% else %>
           <div class="skills">
             <ul class="list-unstyled">
             <%  current_user.topics.each do |topic| %>
               <li><span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%><%=image_tag topic.logo.url(:medium)  %></li>
+            <% end %>
             <% end %>
             </ul>
           </div>
