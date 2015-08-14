@@ -12,24 +12,25 @@
       <% end %>
       <div class="col-md-4 br">
         <font size="6"><%= @user.username || "&lt; Unt1tl3d User &gt;".html_safe %></font>
-        <%= link_to "Edit", edit_user_path(current_user), class: "btn btn-success" if @user == current_user %>
+        <%= link_to "Edit", edit_user_path(current_user) if @user == current_user %>
         <div class="thumbnail">
           <%= user_avatar_tag(@user) %>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="col-md-6"><font size="5">Skills: </font> <%= link_to "Edit", user_skills_path(current_user), class: "btn btn-success" if @user == current_user %>
+        <div class="col-md-6"><font size="5">Skills: </font> <%= link_to "Edit", user_skills_path(current_user) if @user == current_user %>
         <% if @user.topics.count == 0 %>
             <p>You have not chosen any skills yet</p>
         <% else %>
           <div class="skills">
-            <ul class="list-unstyled">
+          <figure>
             <%  current_user.topics.each do |topic| %>
-              <li><span class="glyphicon glyphicon-check" aria-hidden="true"></span> <%= topic.name%><%=image_tag topic.logo.url(:medium)  %></li>
+              <%=image_tag topic.logo.url(:medium)  %>
+              <figcaption><%= topic.name%></figcaption>
             <% end %>
-            <% end %>
-            </ul>
+          </figure>
           </div>
+        <% end %>
         </div>
       </div>
     </div>
