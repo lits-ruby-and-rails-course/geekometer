@@ -47,7 +47,6 @@
 .tabs {
   clear: both;
   perspective: 900px;
-
 }
 
 .tabs > div {
@@ -84,29 +83,34 @@
 }
 
 #complete_button {
-  position: relative; 
-  top: 350px;
-  float: right;
+  position: absolute;
+  bottom: -5px;
+  right: 0; 
+  z-index: 999; /*значення поверх всіх блоків*/
 }
 
 @media screen and (max-width: 750px) {
   .tabbed { width: 400px; height: auto; }
   .tabbed > label { display: none }
   .tabs > div {
-    width: 400px;
+    width: auto;
     height: auto;
     border: none;
-    padding: 0;
+    padding-bottom: 30px;
     opacity: 1;
     position: relative;
     transform: none;
     margin-bottom: 60px;
   }
   .tabs > div h2 {
-    border-bottom: 2px solid #FF0404;
+    border-bottom: 4px solid #b1f6cb;
     padding-bottom: .5em;
   }
-  #copmlete_button {
-  position: fixed; top: 1px; right: -30%;
+  #complete_button {
+  position: absolute;
+  bottom: -75px;
+  right: none;
+  left: 0; 
+  z-index: 999; /*значення поверх всіх блоків*/
   }
 }
