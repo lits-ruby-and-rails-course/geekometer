@@ -2,6 +2,13 @@
 	background-image:  url(image_path('congruent_pentagon.png'));
 }
 
+#GM{
+	font-size: 30px;
+	color: black;
+	opacity: 0.7;
+	font-family: "Wawati TC";
+}
+
 .navbar-nav{
 	
 	width: 100%;
@@ -15,11 +22,15 @@
 
 .navbar-btn{
 	margin-top: 15px;
+	margin-left: -10%;
 }
 
 .navbar-brand{
 	margin-top: 15px;
 }
+
+
+
 
 #take_test:link {
 	color: white;

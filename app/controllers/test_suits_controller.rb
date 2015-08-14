@@ -13,6 +13,7 @@ class TestSuitsController < ApplicationController
 
   def show
     @test_suit = TestSuit.find(params[:id])
+    @user_answers = @test_suit.test_suit_answers.map &:answer_id
   end
 
   def complete

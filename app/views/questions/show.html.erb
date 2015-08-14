@@ -4,7 +4,8 @@
       <% if @question.user == current_user %>
           <%= link_to("Edit", [:edit, @question], class: "btn btn-info") %>
       <% end %>
-      <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-primary'%></a>
+      <%= link_to "New question", new_question_path, class: 'btn btn-info'%>
+      <%= link_to "Back to profile", user_path(current_user), class: 'btn btn-primary'%>
     </div>
     <hr/>
   </div>

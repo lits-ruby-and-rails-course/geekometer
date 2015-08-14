@@ -2,7 +2,7 @@
   <div class='col-md-12 row'>
     <div class="btn-group pull-right">
       <a><%= link_to "Back to statistic", user_test_suits_path(current_user), class: 'btn btn-info'%></a>
-      <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-info'%></a>
+      <a><%= link_to "Back to profile", user_path(current_user), class: 'btn btn-primary'%></a>
     </div>
   </div>
   <div class="col-md-6">
@@ -18,7 +18,7 @@
           <h4> <%= index + 1 %>) <%= markdown(question.condition) %></h4>
           <div class='col-md-10 col-md-offset-1'>
             <% question.answers.each_with_index do |answer, index|%>
-            <p class="<%= answer.answer_valid && 'green' %>"><%= index + 1 %>) <%= markdown(answer.solution) %></p>
+            <p class="<%= answer.answer_valid && 'red' %> <%= @user_answers.include?(answer.id) && 'green' %>" ><%= [index + 1, answer.solution].join(') ') %></p>
             <% end %>
           </div>
         </div>
