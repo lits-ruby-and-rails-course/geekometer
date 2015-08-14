@@ -23,12 +23,12 @@
             <p>You have not chosen any skills yet</p>
         <% else %>
           <div class="skills">
-          <figure>
             <%  current_user.topics.each do |topic| %>
+            <figure>
               <%=image_tag topic.logo.url(:medium)  %>
               <figcaption><%= topic.name%></figcaption>
+            </figure>
             <% end %>
-          </figure>
           </div>
         <% end %>
         </div>
