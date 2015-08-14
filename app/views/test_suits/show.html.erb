@@ -18,7 +18,7 @@
           <h4> <%= [index + 1, question.condition].join(') ') %></h4>
           <div class='col-md-10 col-md-offset-1'>
             <% question.answers.each_with_index do |answer, index|%>
-            <p class="<%= answer.answer_valid && 'green' %>"><%= [index + 1, answer.solution].join(') ') %></p>
+            <p class="<%= answer.answer_valid && 'red' %> <%= @user_answers.include?(answer.id) && 'green' %>" ><%= [index + 1, answer.solution].join(') ') %> </p>
             <% end %>
           </div>
         </div>
