@@ -12,19 +12,17 @@
           <%= @test_suit.stat_test_correct_count%> / <%= @test_suit.stat_question_correct_count%>
       </code>
     </h3>
-      <% @test_suit.questions.each_with_index do |question, index|%>
-      <div class='row'>
-        <div class='col-md-12'>
-          <h4> <%= index + 1 %>) <%= markdown(question.condition) %></h4>
-          <div class='col-md-10 col-md-offset-1'>
-            <% question.answers.each_with_index do |answer, index|%>
-            <p class="<%= answer.answer_valid && 'red' %> <%= @user_answers.include?(answer.id) && 'green' %>" ><%= [index + 1, answer.solution].join(') ') %></p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <hr>
+      <ol>
+      <% @test_suit.questions.each do |question|%>
+      <li class="question"><%= markdown(question.condition) %>
+        <ol>
+        <% question.answers.each_with_index do |answer, index|%>
+        <li class="<%= answer.answer_valid && 'red' %>"><%= markdown((@user_answers.include?(answer.id) ? '✓ ' : '') + answer.solution) %></li>
+        <% end %>
+        </ol>
+      </li>
     <% end %>
+    </ol>
   </div>
   <div class="col-md-6">
     <br>

@@ -26,7 +26,7 @@
               <% question.answers.each_with_index do |answer, j| %>
                   <% element_id = "tab_question_#{question.id}_#{answer.id}" %>
                   <li>
-                    <input type="checkbox" name="test_suit_answers[<%= question.id %>]" id="<%= element_id %>" value="<%= answer.id %>">
+                    <input type="checkbox" name="test_suit_answers[]" id="<%= element_id %>" value="<%= answer.id %>">
                     <label for="<%= element_id %>"><%= markdown(answer.solution) %></label></li>
               <% end %>
             </ul>
