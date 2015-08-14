@@ -16,7 +16,7 @@
         <% @questions.each do |question| %>
           <div class = "questions_show">
             <li>
-              <strong><%=question.condition %></strong>
+              <strong><%= markdown(question.condition) %></strong>
               <%= link_to "Edit", edit_question_path(question) if @user == current_user %>
             </li>
           </div>
@@ -29,7 +29,7 @@
           </div>
             <ul style="list-style-type:disc">
               <% question.answers.each do |answer| %>
-                <li><%= answer.solution %> (<%= answer.answer_valid %>)</li>
+                <li><%= markdown(answer.solution) %> (<%= answer.answer_valid %>)</li>
               <% end %>
             </ul>
         <hr/>
