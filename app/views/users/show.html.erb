@@ -17,7 +17,7 @@
           <%= user_avatar_tag(@user) %>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="skills2">
         <div class="col-md-6"><font size="5">Skills: </font> <%= link_to "Edit", user_skills_path(current_user) if @user == current_user %>
         <% if @user.topics.count == 0 %>
             <p>You have not chosen any skills yet</p>
