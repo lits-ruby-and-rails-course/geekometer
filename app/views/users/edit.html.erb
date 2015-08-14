@@ -2,9 +2,9 @@
     <div class='row'>
       <%= form_for current_user, :html => {:multipart => true} do |f| %>
       <div class='col-md-12 row'>
-        <div class="nav nav-pills pull-right">
+        <div class="btn-group pull-right">
           <a><%= f.submit class: "btn btn-success"%></a>
-          <a><%= link_to "Back to Profile", user_path(current_user), class: "btn btn-info"%></a>
+          <a><%= link_to "Back to Profile", user_path(current_user), class: "btn btn-primary"%></a>
         </div>
         <hr/>
       </div>
