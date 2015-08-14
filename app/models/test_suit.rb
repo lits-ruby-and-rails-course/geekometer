@@ -25,7 +25,7 @@ class TestSuit < ActiveRecord::Base
   end
 
   def build_test_suit_answers(answers)
-    answers.each do |_, answer_id|
+    answers.each do |answer_id|
       test_suit_answers << TestSuitAnswer.new(answer_id: answer_id)
     end
   end

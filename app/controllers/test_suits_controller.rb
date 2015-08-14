@@ -18,6 +18,7 @@ class TestSuitsController < ApplicationController
 
   def complete
     if params[:test_suit_answers]
+      p params[:test_suit_answers]
       test_suit = TestSuit.find(params[:test_suit_id])
       test_suit.build_test_suit_answers(params[:test_suit_answers])
       test_suit.complete!
